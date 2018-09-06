@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <project>
-  <projectNamespace>connect</projectNamespace>
-  <confirmParams>false</confirmParams>
-  <selectedProjectPackage>org.onehippo</selectedProjectPackage>
-  <selectedBeansPackage>org.onehippo.beans</selectedBeansPackage>
-  <selectedComponentsPackage>org.onehippo.components</selectedComponentsPackage>
-  <selectedRestPackage>org.onehippo.rest</selectedRestPackage>
-  <setupDone>false</setupDone>
-  <templateLanguage>freemarker</templateLanguage>
-  <useSamples>true</useSamples>
-  <extraTemplates>true</extraTemplates>
+    <applicationSubModule>application</applicationSubModule>
+    <cmsModule>cms</cmsModule>
+    <confirmParams>false</confirmParams>
+    <developmentSubModule>development</developmentSubModule>
+    <enterprise>true</enterprise>
+    <extraTemplates>true</extraTemplates>
+    <projectNamespace>connect</projectNamespace>
+    <repositoryDataModule>repository-data</repositoryDataModule>
+    <selectedBeansPackage>org.onehippo.connect.beans</selectedBeansPackage>
+    <selectedComponentsPackage>org.onehippo.connect.components</selectedComponentsPackage>
+    <selectedProjectPackage>org.onehippo.connect</selectedProjectPackage>
+    <selectedRestPackage>org.onehippo.connect.rest</selectedRestPackage>
+    <setupDone>true</setupDone>
+    <siteModule>site</siteModule>
+    <templateLanguage>freemarker</templateLanguage>
+    <useSamples>true</useSamples>
+    <webfilesSubModule>webfiles</webfilesSubModule>
 </project>

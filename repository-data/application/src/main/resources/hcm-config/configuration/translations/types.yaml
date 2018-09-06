@@ -1,0 +1,62 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:translations/hippo:types/connect:bannerdocument:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        connect:content: Content
+        connect:image: Image
+        connect:link: Link
+        connect:title: Title
+        jcr:name: Banner
+      /nl:
+        jcr:primaryType: hipposys:resourcebundle
+        connect:content: Inhoud
+        connect:image: Afbeelding
+        connect:link: Link
+        connect:title: Titel
+        jcr:name: Banner
+      /fr:
+        jcr:primaryType: hipposys:resourcebundle
+        connect:content: Contenu
+        connect:image: Image
+        connect:link: Lien
+        connect:title: Titre
+        jcr:name: Bannière
+      /de:
+        jcr:primaryType: hipposys:resourcebundle
+        connect:content: Inhalt
+        connect:image: Abbildung
+        connect:link: Link
+        connect:title: Titel
+        jcr:name: Banner
+    /hippo:configuration/hippo:translations/hippo:types/connect:contentdocument:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        connect:content: Content
+        connect:introduction: Introduction
+        connect:publicationdate: Publication date
+        connect:title: Title
+        jcr:name: Simple Document
+      /nl:
+        jcr:primaryType: hipposys:resourcebundle
+        connect:content: Inhoud
+        connect:introduction: Introductie
+        connect:publicationdate: Publicatiedatum
+        connect:title: Titel
+        jcr:name: Eenvoudig Document
+      /fr:
+        jcr:primaryType: hipposys:resourcebundle
+        connect:content: Contenu
+        connect:introduction: Introduction
+        connect:publicationdate: Date de publication
+        connect:title: Titre
+        jcr:name: Document simple
+      /de:
+        jcr:primaryType: hipposys:resourcebundle
+        connect:content: Inhalt
+        connect:introduction: Einführung
+        connect:publicationdate: Publikationsdatum
+        connect:title: Titel
+        jcr:name: Einfaches Dokument

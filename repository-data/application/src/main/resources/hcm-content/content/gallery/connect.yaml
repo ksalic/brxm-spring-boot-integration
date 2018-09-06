@@ -1,7 +1,7 @@
 /content/gallery/connect:
   jcr:primaryType: hippogallery:stdImageGallery
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 23702e58-fd6b-4669-821e-19b383c8326e
   hippo:name: Connect2018Demo
   hippostd:foldertype: [new-image-folder]
   hippostd:gallerytype: ['hippogallery:imageset']
-
