@@ -1,0 +1,7 @@
+group: 
+  name: connect
+  after: hippo-cms
+project: connect
+module: 
+  name: connect-repository-data-development
+  after: connect-repository-data-application

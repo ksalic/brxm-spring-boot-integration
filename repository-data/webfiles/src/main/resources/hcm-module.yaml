@@ -1,0 +1,5 @@
+group: 
+  name: connect
+  after: hippo-cms
+project: connect
+module: connect-repository-data-webfiles
