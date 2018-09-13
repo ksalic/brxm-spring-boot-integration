@@ -1,6 +1,18 @@
 Running locally
 ===============
 
+Build project as usual for the CMS.
+
+For the application I'm using a Spring Boot application.
+
+If you go to /app with the terminal and start the spring boot project: mvn spring-boot:run
+
+Spring Boot application is running on :9090
+
+CMS & SITE is running on :8080
+
+Url rewriter is already configured.
+
 This project uses the Maven Cargo plugin to run Essentials, the CMS and site locally in Tomcat.
 From the project root folder, execute:
 
