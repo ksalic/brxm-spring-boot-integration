@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<#-- @ftlvariable name="pageModel" type="org.onehippo.connectapp.model.deprecated.PageModel" -->
-<#-- @ftlvariable name="component" type="org.onehippo.connectapp.model.deprecated.ComponentModel" -->
+<#-- @ftlvariable name="pageModel" type="com.bloomreach.pagemodel.api.model.PageModel" -->
+<#-- @ftlvariable name="component" type="com.bloomreach.pagemodel.api.model.ComponentModel" -->
   <head>
     <meta charset="UTF-8">
     <title>Hello ${pageModel.page.name}!</title>
@@ -10,32 +10,19 @@
   <body>
     <h2>Hello ${pageModel.page.name}!</h2>
     <#if pageModel?has_content>
-    <#if isPreview>
-    ${pageModel.page.namedComponents["main"].namedComponents["container"].meta.start}
-    </#if>
-    <div  class="hst-container">
+    <div>
+      <div data-cms-id="${pageModel.page.namedComponents["main"].namedComponents["container"].ID}">
         <#list pageModel.page.namedComponents["main"].namedComponents["container"].components as component>
-             <#if isPreview>
-                 ${component.meta.start}
-             </#if>
-          <div  class="hst-container-item">
+          <div data-cms-id="${component.ID}">
             <h3>${component.name}</h3>
-              <#assign type>${component.label}</#assign>
-              <#if component.models.document.ref??>
-                  <#assign ref>${component.models.document.ref?substring(9)}</#assign>
-            <#--<code class="json">-->
-              <#---->
-            <#--</code>-->
-              </#if>
+              <#--<#assign type>${component.label}</#assign>-->
+              <#--<#if component.models.document.ref??>-->
+                  <#--<#assign ref>${component.models.document.ref?substring(9)}</#assign>-->
+              <#--</#if>-->
           </div>
-            <#if isPreview>
-                ${component.meta.end}
-            </#if>
         </#list>
+      </div>
     </div>
-        <#if isPreview>
-            ${pageModel.page.namedComponents["main"].namedComponents["container"].meta.end}
-        </#if>
     </#if>
   </body>
 </html>

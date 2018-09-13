@@ -110,7 +110,9 @@ public class UrlProxy {
         }
 
         final int result;
-        targetRequest.setRequestHeader("Cookie", "JSESSIONID=" +Arrays.asList(hsRequest.getCookies()).stream().filter(cookie -> cookie.getName().equals("JSESSIONID")).findFirst().get().getValue());
+
+        String jsessionid = Arrays.asList(hsRequest.getCookies()).stream().filter(cookie -> cookie.getName().equals("JSESSIONID")).findFirst().get().getValue();
+        targetRequest.setRequestHeader("Cookie", "JSESSIONID=" + jsessionid);
 
         if (targetRequest instanceof EntityEnclosingMethod) {
             final RequestProxyCustomRequestEntity requestEntity = new RequestProxyCustomRequestEntity(
@@ -129,7 +131,7 @@ public class UrlProxy {
         //InputStream originalResponseStream //= targetRequest.getResponseBodyAsStream();
         String source = targetRequest.getResponseBodyAsString();
 
-        String converted = SpaHtmlUtils.convertToSpaEnabledHtml(source, requestTarget, requestTargetSpaSupport);
+        String converted = SpaHtmlUtils.convertToSpaEnabledHtml(source, requestTarget, requestTargetSpaSupport, jsessionid);
 
         InputStream originalResponseStream = new ByteArrayInputStream(converted.getBytes());
         //the body might be null, i.e. for responses with cache-headers which leave out the body

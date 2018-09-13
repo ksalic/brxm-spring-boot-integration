@@ -23,13 +23,13 @@ public class WebController {
         return "home";
     }
 
-    @GetMapping(path = "/**")
-    public String getPage(Model model, HttpServletRequest req) {
-        PageModel pageModel = service.getPageModel("/");
-        model.addAttribute("pageModel", pageModel);
-        model.addAttribute("isPreview", false);
-        return "home";
-    }
+//    @GetMapping(path = "/**")
+//    public String getPage(Model model, HttpServletRequest req) {
+//        PageModel pageModel = service.getPageModel("/");
+//        model.addAttribute("pageModel", pageModel);
+//        model.addAttribute("isPreview", false);
+//        return "home";
+//    }
 
     @GetMapping(path = "/_cmsinternal/**")
     public String getCmsInternalPage(Model model, HttpServletRequest req) {
