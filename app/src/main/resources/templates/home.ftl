@@ -15,10 +15,17 @@
         <#list pageModel.page.namedComponents["main"].namedComponents["container"].components as component>
           <div data-cms-id="${component.ID}">
             <h3>${component.name}</h3>
-              <#--<#assign type>${component.label}</#assign>-->
-              <#--<#if component.models.document.ref??>-->
-                  <#--<#assign ref>${component.models.document.ref?substring(9)}</#assign>-->
-              <#--</#if>-->
+              <#if component.models??>
+                  <#assign ref>${component.models.document.ref?substring(9)}</#assign>
+              <#--todo in proxy add manage content button -->
+                  <article data-content-id="${ref}">
+                      <#if pageModel.contentNode[ref]??>
+                          <#assign document=pageModel.contentNode[ref]/>
+                          <h2>${document.get("title")}</h2>
+                          <p>${document.get("content").get("value")}</p>
+                      </#if>
+                  </article>
+              </#if>
           </div>
         </#list>
       </div>
