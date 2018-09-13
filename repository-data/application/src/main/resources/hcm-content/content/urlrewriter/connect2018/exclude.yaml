@@ -1,0 +1,43 @@
+/content/urlrewriter/connect2018/exclude:
+  .meta:order-before: bepp
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['mix:referenceable']
+  jcr:uuid: 69ac3001-c2a0-49fd-b1a7-85e5b023fc89
+  /exclude[1]:
+    jcr:primaryType: urlrewriter:xmlrule
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 6d1a49b8-c0b1-41b9-9e34-d264bcc3cc69
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-09-10T22:51:08.939+02:00
+    hippostdpubwf:lastModificationDate: 2018-09-10T22:53:15.058+02:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2008-03-26T12:03:00+01:00
+    urlrewriter:rule: "<rule>\r\n    <from>^/_cmsinternal/resourceapi(.*)$</from>\r\
+      \n    <to  last=\"true\">-</to>\r\n</rule>"
+  /exclude[2]:
+    jcr:primaryType: urlrewriter:xmlrule
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: d659dba8-d1b2-424f-baac-99bcd119102a
+    hippo:availability: [preview]
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-09-10T22:51:08.939+02:00
+    hippostdpubwf:lastModificationDate: 2018-09-10T22:54:21.263+02:00
+    hippostdpubwf:lastModifiedBy: admin
+    urlrewriter:rule: "<rule>\r\n    <from>^/_cmsinternal/resourceapi(.*)$</from>\r\
+      \n    <to  last=\"true\">-</to>\r\n</rule>"
+  /exclude[3]:
+    jcr:primaryType: urlrewriter:xmlrule
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 37fe7ac2-4690-487a-b95b-b1fbe15a4164
+    hippo:availability: [live]
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-09-10T22:51:08.939+02:00
+    hippostdpubwf:lastModificationDate: 2018-09-10T22:54:21.263+02:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-09-10T22:54:23.360+02:00
+    urlrewriter:rule: "<rule>\r\n    <from>^/_cmsinternal/resourceapi(.*)$</from>\r\
+      \n    <to  last=\"true\">-</to>\r\n</rule>"

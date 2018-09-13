@@ -1,0 +1,69 @@
+/content/urlrewriter/connect2018/bepp:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['mix:referenceable']
+  jcr:uuid: 9306799f-10af-46d8-8b24-35e75a5ac746
+  /bepp[1]:
+    jcr:primaryType: urlrewriter:xmlrule
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 532e4474-5c72-45db-9d88-3dc486394d89
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-09-10T14:15:54.798+02:00
+    hippostdpubwf:lastModificationDate: 2018-09-10T17:03:10.345+02:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2008-03-26T12:03:00+01:00
+    urlrewriter:rule: "<rule>\r\n   <name>BEPP Engine</name>\r\n   <from>^/_cmsinternal(.*)$</from>\r\
+      \n   <set name=\"wildcard\">$1</set>\r\n   <run class=\"org.onehippo.connect.proxy.UrlProxy\"\
+      \ method=\"execute\">\r\n      <init-param>   \r\n         <param-name>target</param-name>\r\
+      \n         <param-value>http://localhost:9090/_cmsinternal$1</param-value>\r\
+      \n      </init-param>\r\n      <init-param> \r\n         <param-name>spa-support</param-name>\r\
+      \n         <param-value>http://localhost:8080/site/preview/spa-support$1</param-value>\r\
+      \n      </init-param>\r\n      <init-param>\r\n         <param-name>hostHeader</param-name>\r\
+      \n         <param-value>localhost</param-value>\r\n      </init-param>\r\n \
+      \     <init-param>\r\n         <param-name>replaceSecureCookies</param-name>\r\
+      \n         <param-value>False</param-value>\r\n      </init-param>\r\n   </run>\r\
+      \n   <to>null</to>\r\n</rule>"
+  /bepp[2]:
+    jcr:primaryType: urlrewriter:xmlrule
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: 32a4aa6d-5a32-40ae-a490-7a941257fa1a
+    hippo:availability: [preview]
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-09-10T14:15:54.798+02:00
+    hippostdpubwf:lastModificationDate: 2018-09-10T17:03:20.855+02:00
+    hippostdpubwf:lastModifiedBy: admin
+    urlrewriter:rule: "<rule>\r\n   <name>BEPP Engine</name>\r\n   <from>^/_cmsinternal(.*)$</from>\r\
+      \n   <set name=\"wildcard\">$1</set>\r\n   <run class=\"org.onehippo.connect.proxy.UrlProxy\"\
+      \ method=\"execute\">\r\n      <init-param>   \r\n         <param-name>target</param-name>\r\
+      \n         <param-value>http://localhost:9090/_cmsinternal$1</param-value>\r\
+      \n      </init-param>\r\n      <init-param> \r\n         <param-name>spa-support</param-name>\r\
+      \n         <param-value>http://localhost:8080/site/preview/spa-support$1</param-value>\r\
+      \n      </init-param>\r\n      <init-param>\r\n         <param-name>hostHeader</param-name>\r\
+      \n         <param-value>localhost</param-value>\r\n      </init-param>\r\n \
+      \     <init-param>\r\n         <param-name>replaceSecureCookies</param-name>\r\
+      \n         <param-value>False</param-value>\r\n      </init-param>\r\n   </run>\r\
+      \n   <to>null</to>\r\n</rule>"
+  /bepp[3]:
+    jcr:primaryType: urlrewriter:xmlrule
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: c634f4b7-7319-45f6-9c7b-c3aaf3cbdb4e
+    hippo:availability: [live]
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-09-10T14:15:54.798+02:00
+    hippostdpubwf:lastModificationDate: 2018-09-10T17:03:20.855+02:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-09-10T22:51:40.291+02:00
+    urlrewriter:rule: "<rule>\r\n   <name>BEPP Engine</name>\r\n   <from>^/_cmsinternal(.*)$</from>\r\
+      \n   <set name=\"wildcard\">$1</set>\r\n   <run class=\"org.onehippo.connect.proxy.UrlProxy\"\
+      \ method=\"execute\">\r\n      <init-param>   \r\n         <param-name>target</param-name>\r\
+      \n         <param-value>http://localhost:9090/_cmsinternal$1</param-value>\r\
+      \n      </init-param>\r\n      <init-param> \r\n         <param-name>spa-support</param-name>\r\
+      \n         <param-value>http://localhost:8080/site/preview/spa-support$1</param-value>\r\
+      \n      </init-param>\r\n      <init-param>\r\n         <param-name>hostHeader</param-name>\r\
+      \n         <param-value>localhost</param-value>\r\n      </init-param>\r\n \
+      \     <init-param>\r\n         <param-name>replaceSecureCookies</param-name>\r\
+      \n         <param-value>False</param-value>\r\n      </init-param>\r\n   </run>\r\
+      \n   <to>null</to>\r\n</rule>"

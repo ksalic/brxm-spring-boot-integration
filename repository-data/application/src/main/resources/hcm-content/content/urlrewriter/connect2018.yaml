@@ -1,0 +1,5 @@
+/content/urlrewriter/connect2018:
+  jcr:primaryType: urlrewriter:ruleset
+  jcr:mixinTypes: ['mix:referenceable']
+  jcr:uuid: fa5c03e4-7007-4a4c-9ffb-b29c54c44937
+  hippostd:foldertype: [new-urlrewriter-folder, new-urlrewriter-document]

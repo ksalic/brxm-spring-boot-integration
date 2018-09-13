@@ -1,15 +1,19 @@
 /content/urlrewriter/sample-rules:
+  .meta:order-before: connect2018
   jcr:primaryType: urlrewriter:ruleset
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 104a715f-9561-45cc-b76c-cb39c284ac9a
   hippo:name: Sample Rules
   hippostd:foldertype: [new-urlrewriter-folder, new-urlrewriter-document]
   /regular-rule:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: 111ccfa0-9d52-41c2-b529-90823ad8a9cc
     hippo:name: Regular Rule
     /regular-rule:
       jcr:primaryType: urlrewriter:rule
       jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: ed597123-d425-4fe4-98cf-76f9e79a84eb
       hippo:availability: [live]
       hippo:related___pathreference: rule-documents/regular-rule
       hippostd:holder: admin
@@ -26,10 +30,12 @@
   /advanced-rule:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: 8de3f25e-9b05-4854-a81a-6783cce36da5
     hippo:name: Advanced Rule
     /advanced-rule:
       jcr:primaryType: urlrewriter:advancedrule
       jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: b29cd259-9297-466f-bd86-262e12205bf2
       hippo:availability: [live]
       hippo:related___pathreference: rule-documents/advanced-rule
       hippostd:holder: admin
@@ -49,10 +55,12 @@
   /xml-rule:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: 425423f4-ac39-41cc-a343-91364815a55a
     hippo:name: XML Rule
     /xml-rule:
       jcr:primaryType: urlrewriter:xmlrule
       jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 469c1978-2772-4dc7-a7c7-944a593d05f6
       hippo:availability: [live]
       hippo:related___pathreference: rule-documents/xml-rule
       hippostd:state: published
@@ -61,6 +69,11 @@
       hippostdpubwf:lastModificationDate: 2015-05-19T23:38:16.531+02:00
       hippostdpubwf:lastModifiedBy: admin
       hippostdpubwf:publicationDate: 2015-05-19T23:38:21.749+02:00
-      urlrewriter:rule:
-        type: string
-        resource: sample-rule.xml
+      urlrewriter:rule: |-
+        <rule>
+          <note>
+            This rule means that requests to /test/status will be redirected to /rewrite-status.
+          </note>
+          <from>/test/status</from>
+          <to type="redirect">/%{context-path}/rewrite-status</to>
+        </rule>

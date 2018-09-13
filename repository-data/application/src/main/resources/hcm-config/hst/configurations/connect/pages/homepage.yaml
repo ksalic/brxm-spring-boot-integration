@@ -3,6 +3,8 @@ definitions:
     /hst:hst/hst:configurations/connect/hst:pages/homepage:
       jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/base
+      hst:parameternames: [test]
+      hst:parametervalues: [test2]
       /main:
         jcr:primaryType: hst:component
         hst:template: homepage-main

@@ -1,0 +1,10 @@
+/hst:hst/hst:configurations/connect/hst:workspace/hst:containers/homepage/main/banner:
+  jcr:primaryType: hst:containeritemcomponent
+  hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsBannerComponent
+  hst:iconpath: images/essentials/catalog-component-icons/banner.png
+  hst:label: Banner
+  hst:parameternames: [com.onehippo.cms7.targeting.TargetingParameterUtil.hide, document,
+    org.hippoecm.hst.core.component.template]
+  hst:parametervalues: ['off', banners/banner1, 'webfile:/freemarker/hstdefault/essentials-banner.ftl']
+  hst:template: essentials-banner
+  hst:xtype: hst.item

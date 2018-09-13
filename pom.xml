@@ -220,6 +220,7 @@
         </property>
       </activation>
       <modules>
+        <module>pagemodel-api</module>
         <module>repository-data</module>
         <module>cms</module>
         <module>site</module>

@@ -20,7 +20,8 @@ definitions:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:containercomponent
           hst:label: Home Page Main
-          hst:xtype: hst.vbox
+          hst:xtype: hst.nomarkup
+          hst:lastmodified: 2018-09-10T17:03:39.756+02:00
       /pagenotfound:
         jcr:primaryType: hst:containercomponentfolder
         /main:
