@@ -16,6 +16,5 @@
       console.log(propertiesMap);
       window.location.reload();
     }
-
   };
 })();
