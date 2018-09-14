@@ -1,0 +1,43 @@
+/content/urlrewriter/connect2018/binaries:
+  .meta:order-before: bepp
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: d8d2779d-7fe7-4a72-8233-b5df3ebe93ad
+  hippo:name: binaries
+  /binaries[1]:
+    jcr:primaryType: urlrewriter:xmlrule
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: bf64f31d-e358-4be2-bda3-abc01986a47f
+    hippo:availability: [preview]
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-09-10T22:51:08.939+02:00
+    hippostdpubwf:lastModificationDate: 2018-09-14T13:02:23.938+02:00
+    hippostdpubwf:lastModifiedBy: admin
+    urlrewriter:rule: "<rule>\r\n    <from>^/_cmsinternal/binaries(.*)$</from>\r\n\
+      \    <to  last=\"true\">-</to>\r\n</rule>"
+  /binaries[2]:
+    jcr:primaryType: urlrewriter:xmlrule
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 425da81d-8a1d-46d4-8598-f05f5c049cff
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-09-10T22:51:08.939+02:00
+    hippostdpubwf:lastModificationDate: 2018-09-14T13:02:10.717+02:00
+    hippostdpubwf:lastModifiedBy: admin
+    urlrewriter:rule: "<rule>\r\n    <from>^/_cmsinternal/binaries(.*)$</from>\r\n\
+      \    <to  last=\"true\">-</to>\r\n</rule>"
+  /binaries[3]:
+    jcr:primaryType: urlrewriter:xmlrule
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: eba62ebc-0614-41b3-a69d-9d870c5bdbe1
+    hippo:availability: [live]
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-09-10T22:51:08.939+02:00
+    hippostdpubwf:lastModificationDate: 2018-09-14T13:02:23.938+02:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2018-09-14T13:02:25.782+02:00
+    urlrewriter:rule: "<rule>\r\n    <from>^/_cmsinternal/binaries(.*)$</from>\r\n\
+      \    <to  last=\"true\">-</to>\r\n</rule>"

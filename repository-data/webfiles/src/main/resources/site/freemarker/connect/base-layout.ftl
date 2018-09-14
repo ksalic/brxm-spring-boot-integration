@@ -29,5 +29,6 @@
       </div>
     </div>
     <@hst.headContributions categoryIncludes="htmlBodyEnd, scripts" xhtml=true/>
+    <script type="text/javascript" src="<@hst.webfile path="/js/pa.js"/>"></script>
   </body>
 </html>

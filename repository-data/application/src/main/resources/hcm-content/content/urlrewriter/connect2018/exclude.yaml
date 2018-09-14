@@ -1,5 +1,5 @@
 /content/urlrewriter/connect2018/exclude:
-  .meta:order-before: bepp
+  .meta:order-before: binaries
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['mix:referenceable']
   jcr:uuid: 69ac3001-c2a0-49fd-b1a7-85e5b023fc89

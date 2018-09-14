@@ -14,18 +14,22 @@
       <div data-cms-id="${pageModel.page.namedComponents["main"].namedComponents["container"].ID}">
         <#list pageModel.page.namedComponents["main"].namedComponents["container"].components as component>
           <div data-cms-id="${component.ID}">
-            <h3>${component.name}</h3>
+          <#--<h3>${component.name}</h3>-->
+            <div>
               <#if component.models??>
                   <#assign ref>${component.models.document.ref?substring(9)}</#assign>
               <#--todo in proxy add manage content button -->
-                  <article data-content-id="${ref}">
+                <article data-content-id="${ref}">
                       <#if pageModel.contentNode[ref]??>
                           <#assign document=pageModel.contentNode[ref]/>
-                          <h2>${document.get("title")}</h2>
-                          <p>${document.get("content").get("value")}</p>
+                        <h2>${document.get("title").asText()}</h2>
+                          ${document.get("content").get("value").asText()}
+                          <#assign imageRef>${document.get("image").get("$ref").asText()?substring(9)}</#assign>
+                        <img src="http://localhost:8080${pageModel.contentNode[imageRef].get("original").get("_links").get("site").get("href").asText()}"/>
                       </#if>
-                  </article>
+                </article>
               </#if>
+            </div>
           </div>
         </#list>
       </div>

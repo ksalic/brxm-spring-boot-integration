@@ -1,7 +1,0 @@
-/hst:hst/hst:configurations/connect/hst:workspace/hst:containers/homepage/main/banner2:
-  jcr:primaryType: hst:containeritemcomponent
-  hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsBannerComponent
-  hst:iconpath: images/essentials/catalog-component-icons/banner.png
-  hst:label: Banner
-  hst:template: essentials-banner
-  hst:xtype: hst.item

@@ -2,18 +2,12 @@ package org.onehippo.connect.proxy;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 
 import javax.servlet.http.Cookie;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.hippoecm.hst.pagemodelapi.v09.core.container.FlatAggregatedPageModel;
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Comment;
 import org.jsoup.nodes.DataNode;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -66,7 +60,7 @@ public class SpaHtmlUtils {
             for (Element dataCms : dataCmsElements) {
 
                 String attr = dataCms.attr("data-cms-id");
-                if(flatComponentModelMap.getComponents().containsKey(attr)){
+                if (flatComponentModelMap.getComponents().containsKey(attr)) {
                     FlatComponentModel flatComponentWindowModel = flatComponentModelMap.getComponents().get(attr);
                     dataCms.removeAttr("data-cms-id");
                     dataCms.before(new DataNode(flatComponentWindowModel.getCommentStart()));
@@ -78,18 +72,10 @@ public class SpaHtmlUtils {
         InputStream resourceAsStream = SpaHtmlUtils.class.getResourceAsStream("/script.js");
         try {
             String script = IOUtils.toString(resourceAsStream, UTF_8);
-            doc.body().children().last().after(new DataNode("<script>" +
-                    "(function () {\n" +
-                    "  // your page initialization code here\n" +
-                    "  // the DOM will be available here\n" +
-                    "  alert('application loaded in channel manager - js injected through proxy');\n" +
-                    "})();" +
-                    "</script>"));
+            doc.body().children().last().after(new DataNode("<script>" + script + "</script>"));
         } catch (IOException e) {
-           log.error("error while trying to load script in spa proxy", e);
+            log.error("error while trying to load script in spa proxy", e);
         }
-
-
         return doc.toString();
     }
 }
