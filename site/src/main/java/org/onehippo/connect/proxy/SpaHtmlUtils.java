@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -22,10 +23,10 @@ public class SpaHtmlUtils {
     private static final Logger log = LoggerFactory.getLogger(SpaHtmlUtils.class);
 
 
-    public static String convertToSpaEnabledHtml(final String source, final String baseUrl, final String spaSupportUrl, final String JSESSIONID) {
+    public static String convertToSpaEnabledHtml(final String source, final String baseUrl, final String spaSupportUrl, final HttpServletRequest hsRequest) {
         if (StringUtils.isNotEmpty(spaSupportUrl)) {
             PageModelServiceClient client = new PageModelServiceClient();
-            FlatComponentModelMap flatModelMap = client.getFlatListModelForPreview(spaSupportUrl, new Cookie[]{new Cookie("JSESSIONID", JSESSIONID)}, "");
+            FlatComponentModelMap flatModelMap = client.getFlatListModelForPreview(spaSupportUrl, hsRequest, "");
             return convertToSpaEnabledHtml(source, baseUrl, flatModelMap);
         }
         return source;
@@ -65,6 +66,21 @@ public class SpaHtmlUtils {
                     dataCms.removeAttr("data-cms-id");
                     dataCms.before(new DataNode(flatComponentWindowModel.getCommentStart()));
                     dataCms.after(new DataNode(flatComponentWindowModel.getCommentEnd()));
+                }
+            }
+        }
+
+        if (flatComponentModelMap != null) {
+            Elements dataCmsElements = doc.getElementsByAttribute("data-content-id");
+
+            for (Element dataCms : dataCmsElements) {
+
+                String attr = dataCms.attr("data-content-id");
+                if (flatComponentModelMap.getContent().containsKey(attr)) {
+                    dataCms.attr("style", "position:relative;");
+                    FlatComponentModel flatComponentWindowModel = flatComponentModelMap.getContent().get(attr);
+                    dataCms.removeAttr("data-content-id");
+                    dataCms.insertChildren(0, new DataNode(flatComponentWindowModel.getCommentStart()));
                 }
             }
         }

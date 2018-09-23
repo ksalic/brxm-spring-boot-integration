@@ -1,6 +1,7 @@
 package com.bloomreach.pagemodel.api.model;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -10,7 +11,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class PageModel {
     private String id;
     private Map<String, LinkModel> links;
-    private Page page;
+    private ComponentModel page;
     private Map<String, Content> content;
     private Map<String, JsonNode> contentNode;
 
@@ -39,12 +40,12 @@ public class PageModel {
     }
 
     @JsonProperty("page")
-    public Page getPage() {
+    public ComponentModel getPage() {
         return page;
     }
 
     @JsonProperty("page")
-    public void setPage(Page value) {
+    public void setPage(ComponentModel value) {
         this.page = value;
     }
 
@@ -63,10 +64,7 @@ public class PageModel {
 
     @JsonProperty("content")
     public Map<String, JsonNode> getContentNode() {
-        if (contentNode == null) {
-            return null;
-        }
-        return Collections.unmodifiableMap(contentNode);
+        return contentNode;
     }
 
     @JsonProperty("content")

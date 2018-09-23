@@ -21,7 +21,7 @@ definitions:
           jcr:primaryType: hst:containercomponent
           hst:label: Home Page Main
           hst:xtype: hst.nomarkup
-          hst:lastmodified: 2018-09-14T15:42:47.496+02:00
+          hst:lastmodified: 2018-09-18T11:56:11.384+02:00
       /pagenotfound:
         jcr:primaryType: hst:containercomponentfolder
         /main:

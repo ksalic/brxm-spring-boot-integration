@@ -7,6 +7,8 @@ public class FlatComponentModelMap {
 
     private Map<String, FlatComponentModel> components = new HashMap<>();
 
+    private Map<String, FlatComponentModel> content = new HashMap<>();
+
     public Map<String, FlatComponentModel> getComponents() {
         return components;
     }
@@ -15,7 +17,20 @@ public class FlatComponentModelMap {
         this.components = components;
     }
 
-    public FlatComponentModel put(final String key, final FlatComponentModel value) {
+    public FlatComponentModel putComponent(final String key, final FlatComponentModel value) {
         return components.put(key, value);
     }
+
+    public FlatComponentModel putContent(final String key, final FlatComponentModel value) {
+        return content.put(key, value);
+    }
+
+    public Map<String, FlatComponentModel> getContent() {
+        return content;
+    }
+
+    public void setContent(final Map<String, FlatComponentModel> content) {
+        this.content = content;
+    }
+
 }

@@ -272,13 +272,13 @@
                     <context>/site</context>
                   </properties>
                 </deployable>
-                <deployable>
-                  <location>${project.basedir}/essentials/target/essentials.war</location>
-                  <type>war</type>
-                  <properties>
-                    <context>/essentials</context>
-                  </properties>
-                </deployable>
+                <!--<deployable>-->
+                  <!--<location>${project.basedir}/essentials/target/essentials.war</location>-->
+                  <!--<type>war</type>-->
+                  <!--<properties>-->
+                    <!--<context>/essentials</context>-->
+                  <!--</properties>-->
+                <!--</deployable>-->
               </deployables>
               <container>
                 <systemProperties>
@@ -320,6 +320,7 @@
               <skip>${es.skip.start}</skip>
             </configuration>
           </plugin>
+
         </plugins>
       </build>
       <properties>

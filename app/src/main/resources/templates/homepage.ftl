@@ -17,8 +17,7 @@
           <#--<h3>${component.name}</h3>-->
             <div>
               <#if component.models??>
-                  <#assign ref>${component.models.document.ref?substring(9)}</#assign>
-              <#--todo in proxy add manage content button -->
+                  <#assign ref>${component.models.document.reference}</#assign>
                 <article data-content-id="${ref}">
                       <#if pageModel.contentNode[ref]??>
                           <#assign document=pageModel.contentNode[ref]/>

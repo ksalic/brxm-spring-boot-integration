@@ -1,23 +1,27 @@
 package com.bloomreach.pagemodel.api.model;
 
-import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class ComponentModel {
+public class ComponentModel implements Component {
+
     private String id;
     private String name;
     private String componentClass;
     private String type;
     private String label;
-    private ComponentModel[] components;
+    private List<ComponentModel> components;
     private MetaModel meta;
     private Map<String, LinkModel> links;
     private Model models;
+    private Map<String, ComponentModel> namedComponents;
+    private Map<String, ComponentModel> idComponents;
+
 
 
     @JsonProperty("id")
@@ -61,19 +65,31 @@ public class ComponentModel {
     }
 
     @JsonProperty("components")
-    public ComponentModel[] getComponents() {
+    public List<ComponentModel> getComponents() {
         return components;
     }
 
     @JsonProperty("components")
-    public void setComponents(ComponentModel[] value) {
+    public void setComponents(List<ComponentModel> value) {
         this.components = value;
     }
 
-    public Map<String, ComponentModel> getNamedComponents(){
-        return Arrays.asList(getComponents()).stream().collect(Collectors.toMap(
-                component -> component.getName(),
-                component -> component));
+    public Map<String, ComponentModel> getNamedComponents() {
+        if (namedComponents == null && getComponents() != null) {
+            namedComponents = getComponents().stream().collect(Collectors.toMap(
+                    component -> component.getName(),
+                    component -> component));
+        }
+        return namedComponents;
+    }
+
+    public Map<String, ComponentModel> getIdComponents() {
+        if (idComponents == null && getComponents() != null) {
+            idComponents = getComponents().stream().collect(Collectors.toMap(
+                    component -> component.getID(),
+                    component -> component));
+        }
+        return idComponents;
     }
 
     @JsonProperty("_meta")
@@ -129,7 +145,7 @@ public class ComponentModel {
                 ", componentClass='" + componentClass + '\'' +
                 ", type='" + type + '\'' +
                 ", label='" + label + '\'' +
-                ", components=" + Arrays.toString(components) +
+                ", components=" + components +
                 ", meta=" + meta +
                 ", links=" + links +
                 ", models=" + models +

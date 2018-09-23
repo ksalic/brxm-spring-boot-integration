@@ -2,20 +2,23 @@ package com.bloomreach.pagemodel.api.model;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Page {
+public class Page implements Component {
     private String id;
     private String name;
     private String componentClass;
     private String type;
-    private ComponentModel [] components;
+    private String label;
+    private List<ComponentModel> components;
     private MetaModel meta;
     private Map<String, LinkModel> links;
+    private Model models;
 
     @JsonProperty("id")
     public String getID() { return id; }
@@ -38,12 +41,12 @@ public class Page {
     public void setType(String value) { this.type = value; }
 
     @JsonProperty("components")
-    public ComponentModel [] getComponents() { return components; }
+    public List<ComponentModel> getComponents() { return components; }
     @JsonProperty("components")
-    public void setComponents(ComponentModel [] value) { this.components = value; }
+    public void setComponents(List<ComponentModel> value) { this.components = value; }
 
     public Map<String, ComponentModel> getNamedComponents(){
-        return Arrays.asList(getComponents()).stream().collect(Collectors.toMap(
+        return getComponents().stream().collect(Collectors.toMap(
                 component -> component.getName(),
                 component -> component));
     }
@@ -62,8 +65,28 @@ public class Page {
         return Collections.unmodifiableMap(links);
     }
 
+    @JsonProperty("models")
+    public Model getModels() {
+        return models;
+    }
+
+    @JsonProperty("models")
+    public void setModels(Model value) {
+        this.models = value;
+    }
+
     @JsonProperty("_links")
     public void setLinks(final Map<String, LinkModel> linksMap) {
         this.links = linksMap;
+    }
+
+    @JsonProperty("label")
+    public String getLabel() {
+        return label;
+    }
+
+    @JsonProperty("label")
+    public void setLabel(String value) {
+        this.label = value;
     }
 }
