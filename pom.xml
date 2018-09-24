@@ -221,6 +221,7 @@
       </activation>
       <modules>
         <module>pagemodel-api</module>
+        <module>pagemodel-hst</module>
         <module>repository-data</module>
         <module>cms</module>
         <module>site</module>

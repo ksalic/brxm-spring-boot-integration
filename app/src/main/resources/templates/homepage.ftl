@@ -11,14 +11,14 @@
     <h2>Hello ${pageModel.page.name}!</h2>
     <#if pageModel?has_content>
     <div>
-      <div data-cms-id="${pageModel.page.namedComponents["main"].namedComponents["container"].ID}">
+      <div data-cms-component-id="${pageModel.page.namedComponents["main"].namedComponents["container"].ID}">
         <#list pageModel.page.namedComponents["main"].namedComponents["container"].components as component>
-          <div data-cms-id="${component.ID}">
+          <div data-cms-component-id="${component.ID}">
           <#--<h3>${component.name}</h3>-->
             <div>
               <#if component.models??>
                   <#assign ref>${component.models.document.reference}</#assign>
-                <article data-content-id="${ref}">
+                <article data-cms-content-id="${ref}">
                       <#if pageModel.contentNode[ref]??>
                           <#assign document=pageModel.contentNode[ref]/>
                         <h2>${document.get("title").asText()}</h2>

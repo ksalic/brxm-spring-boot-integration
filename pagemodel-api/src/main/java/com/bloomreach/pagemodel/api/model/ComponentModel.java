@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class ComponentModel implements Component {
+public class ComponentModel {
 
     private String id;
     private String name;

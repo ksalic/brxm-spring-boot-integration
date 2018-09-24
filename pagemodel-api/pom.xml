@@ -10,6 +10,10 @@
   <name>BloomReach PageModel API</name>
   <description>BloomReach PageModel API</description>
 
+  <properties>
+    <spring.version>4.3.18.RELEASE</spring.version>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
@@ -21,6 +25,18 @@
       <artifactId>jackson-databind</artifactId>
       <version>2.9.6</version>
     </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.5</version>
+      <scope>provided</scope>
+    </dependency>
+
   </dependencies>
 
   <build>

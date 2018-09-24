@@ -1,4 +1,4 @@
-package org.onehippo.connect.proxy;
+package com.bloomreach.pagemodel.hst.bepp;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -6,7 +6,6 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.NotAllowedException;
 
@@ -18,7 +17,6 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.WebUtils;
 
 import static org.springframework.http.HttpMethod.GET;
 

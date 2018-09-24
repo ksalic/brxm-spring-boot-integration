@@ -76,7 +76,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-09-23T21:13:02.772+02:00
+      hippostdpubwf:lastModificationDate: 2018-09-24T13:18:03.110+02:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 570034f3-e0fa-4396-b49c-b274f90d47c4
       hippotranslation:locale: en
@@ -110,9 +110,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-09-14T17:45:02.859+02:00
+      hippostdpubwf:lastModificationDate: 2018-09-17T08:56:07.691+02:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-09-14T18:01:06.724+02:00
+      hippostdpubwf:publicationDate: 2018-09-24T15:41:53.717+02:00
       hippotranslation:id: e3f162b7-a1e0-42d0-8195-6d6d8acb5156
       hippotranslation:locale: en
       /connect:content:
@@ -176,7 +176,6 @@
       jcr:uuid: 5701d249-df85-40cc-9e24-efdea9a04aef
       connect:title: Sample banner 2
       hippo:availability: []
-      hippostd:holder: admin
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00

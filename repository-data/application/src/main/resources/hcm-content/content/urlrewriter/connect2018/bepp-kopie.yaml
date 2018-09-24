@@ -1,0 +1,26 @@
+/content/urlrewriter/connect2018/bepp-kopie:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: c71019bd-cb68-40c9-8fea-b61a5cb7a72a
+  hippo:name: bepp (kopie)
+  /bepp-kopie:
+    jcr:primaryType: urlrewriter:xmlrule
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: e10ea427-fa14-483a-a4e6-640227d0002e
+    hippo:availability: [preview]
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2018-09-10T14:15:54.798+02:00
+    hippostdpubwf:lastModificationDate: 2018-09-13T10:59:30.820+02:00
+    hippostdpubwf:lastModifiedBy: admin
+    urlrewriter:rule: "<rule>\r\n   <name>BEPP Engine</name>\r\n   <from>^/_cmsinternal(.*)$</from>\r\
+      \n   <set name=\"wildcard\">$1</set>\r\n   <run class=\"org.onehippo.connect.proxy.UrlProxy\"\
+      \ method=\"execute\">\r\n      <init-param>   \r\n         <param-name>target</param-name>\r\
+      \n         <param-value>http://localhost:9090/_cmsinternal$1</param-value>\r\
+      \n      </init-param>\r\n      <init-param> \r\n         <param-name>spa-support</param-name>\r\
+      \n         <param-value>http://localhost:8080/site/_cmsinternal/resourceapi$1</param-value>\r\
+      \n      </init-param>\r\n      <init-param>\r\n         <param-name>hostHeader</param-name>\r\
+      \n         <param-value>localhost</param-value>\r\n      </init-param>\r\n \
+      \     <init-param>\r\n         <param-name>replaceSecureCookies</param-name>\r\
+      \n         <param-value>False</param-value>\r\n      </init-param>\r\n   </run>\r\
+      \n   <to>null</to>\r\n</rule>"

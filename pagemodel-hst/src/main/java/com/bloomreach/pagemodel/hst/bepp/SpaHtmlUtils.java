@@ -1,9 +1,8 @@
-package org.onehippo.connect.proxy;
+package com.bloomreach.pagemodel.hst.bepp;
 
 import java.io.IOException;
 import java.io.InputStream;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.IOUtils;
@@ -16,7 +15,8 @@ import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static org.apache.commons.lang.CharEncoding.UTF_8;
+import static org.apache.commons.lang3.CharEncoding.UTF_8;
+
 
 public class SpaHtmlUtils {
 
@@ -34,26 +34,6 @@ public class SpaHtmlUtils {
 
     public static String convertToSpaEnabledHtml(final String source, final String baseUrl, final FlatComponentModelMap flatComponentModelMap) {
         Document doc = Jsoup.parse(source, baseUrl);
-
-//        Elements links = doc.select("link");
-//        for (Element link : links) {
-//            String absUrl = link.absUrl("href");
-//            link.attr("href", absUrl);
-//        }
-//        Elements scripts = doc.select("script");
-//        for (Element script : scripts) {
-//            if(script.hasAttr("src")){
-//                String absUrl = script.absUrl("src");
-//                script.attr("src", absUrl);
-//                if(script.hasAttr("data-dtconfig")){
-//                    String dtconfig = script.attr("data-dtconfig");
-//                    String base = doc.baseUri();
-//                    dtconfig = dtconfig.replace("reportUrl=/", "reportUrl=" + base + "/");
-//                    dtconfig = dtconfig.replace("agentUri=/", "agentUri=" + base + "/");
-//                    script.attr("data-dtconfig", dtconfig);
-//                }
-//            }
-//        }
 
         if (flatComponentModelMap != null) {
             Elements dataCmsComponentElements = doc.getElementsByAttribute("data-cms-component-id");
