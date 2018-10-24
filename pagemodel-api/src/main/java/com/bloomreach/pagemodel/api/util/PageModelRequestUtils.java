@@ -21,6 +21,7 @@ import org.springframework.web.util.WebUtils;
 public class PageModelRequestUtils {
 
     public static PageModel getPageModel(final String baseUrl, final HttpServletRequest req, final HttpServletResponse res) {
+        String url = baseUrl + req.getServletPath();
         Cookie visitor = WebUtils.getCookie(req, "_visitor");
         String visitorId = UUID.randomUUID().toString();
         if (visitor != null) {
@@ -32,7 +33,7 @@ public class PageModelRequestUtils {
         headers.add("Cookie", "_visitor=" + visitorId);
         headers.add("User-Agent", req.getHeader("User-Agent"));
         RestTemplate template = new RestTemplate();
-        ResponseEntity<PageModel> exchange = template.exchange(baseUrl,
+        ResponseEntity<PageModel> exchange = template.exchange(url,
                 HttpMethod.GET,
                 new HttpEntity<String>(headers),
                 PageModel.class);
@@ -65,12 +66,13 @@ public class PageModelRequestUtils {
         return pageModel;
     }
 
-    public static PageModel getFullPageModelForPreview(final String previewBaseUrl, final HttpServletRequest req, final HttpServletResponse res, final String ref, final MultiValueMap<String, Object> properties, boolean partial) {
-        PageModel pageModel = getPageModelForPreview(previewBaseUrl, req, res);
+    public static PageModel getFullPageModelForPreview(final String previewBaseUrl, final String previewBasePrefix, final HttpServletRequest req, final HttpServletResponse res, final String ref, final MultiValueMap<String, Object> properties, boolean partial) {
+        String url = previewBaseUrl + req.getServletPath().replace(previewBasePrefix, "");
+        PageModel pageModel = getPageModelForPreview(url, req, res);
         if (partial) {
             properties.remove("partial");
             properties.remove("ref");
-            PageModel partialPageModelForPreview = getPartialPageModelForPreview(previewBaseUrl, req, res, ref, properties);
+            PageModel partialPageModelForPreview = getPartialPageModelForPreview(url, req, res, ref, properties);
             pageModel = PageModelUtils.merge(pageModel, partialPageModelForPreview);
         }
         return pageModel;

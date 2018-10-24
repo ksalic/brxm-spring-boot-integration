@@ -14,41 +14,67 @@ public class MetaModel {
 
 
     @JsonProperty("definitionId")
-    public String getDefinitionID() { return definitionID; }
+    public String getDefinitionID() {
+        return definitionID;
+    }
+
     @JsonProperty("definitionId")
-    public void setDefinitionID(String value) { this.definitionID = value; }
+    public void setDefinitionID(String value) {
+        this.definitionID = value;
+    }
 
     @JsonProperty("pageTitle")
-    public String getPageTitle() { return pageTitle; }
+    public String getPageTitle() {
+        return pageTitle;
+    }
+
     @JsonProperty("pageTitle")
-    public void setPageTitle(String value) { this.pageTitle = value; }
+    public void setPageTitle(String value) {
+        this.pageTitle = value;
+    }
+
     @JsonProperty("params")
-    public Map<String, String> getParams() { return params; }
+    public Map<String, String> getParams() {
+        return params;
+    }
+
     @JsonProperty("params")
-    public void setParams(Map<String, String> value) { this.params = value; }
+    public void setParams(Map<String, String> value) {
+        this.params = value;
+    }
 
     @JsonProperty("paramsInfo")
-    public Map<String, String> getParamsInfo() { return paramsInfo; }
+    public Map<String, String> getParamsInfo() {
+        return paramsInfo;
+    }
+
     @JsonProperty("paramsInfo")
-    public void setParamsInfo(Map<String, String> value) { this.paramsInfo = value; }
+    public void setParamsInfo(Map<String, String> value) {
+        this.paramsInfo = value;
+    }
 
     @JsonProperty("beginNodeSpan")
     public NodeSpan[] getBeginNodeSpan() {
         return beginNodeSpan;
     }
 
-    public String getStart(){
-        return getBeginNodeSpan()[0].getData();
-    }
-
-    public String getEnd(){
-        return getEndNodeSpan()[0].getData();
-    }
-
-
     @JsonProperty("beginNodeSpan")
     public void setBeginNodeSpan(final NodeSpan[] beginNodeSpan) {
         this.beginNodeSpan = beginNodeSpan;
+    }
+
+    public String getStart() {
+        if (getBeginNodeSpan() != null) {
+            return getBeginNodeSpan()[0].getData();
+        }
+        return null;
+    }
+
+    public String getEnd() {
+        if (getEndNodeSpan() != null) {
+            return getEndNodeSpan()[0].getData();
+        }
+        return null;
     }
 
     @JsonProperty("endNodeSpan")

@@ -4,9 +4,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bloomreach.pagemodel.api.model.PageModel;
+import com.bloomreach.pagemodel.api.util.TemplateSupport;
 
 import org.onehippo.connectapp.service.PageModelResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
@@ -17,13 +19,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class WebController {
 
     @Autowired
-    PageModelResourceService service;
+    private PageModelResourceService service;
 
-    @GetMapping(path = "/")
+    private TemplateSupport previewTemplateSupport = new TemplateSupport(true);
+    private TemplateSupport liveTemplateSupport = new TemplateSupport();
+
+
+    @GetMapping(path = "**")
     public String getHomePage(Model model, HttpServletRequest req, HttpServletResponse res) {
         PageModel pageModel = service.getPageModel(req, res);
         model.addAttribute("pageModel", pageModel);
         model.addAttribute("isPreview", false);
+        model.addAttribute("ts", liveTemplateSupport);
         return pageModel.getPage().getName();
     }
 
@@ -43,6 +50,7 @@ public class WebController {
         PageModel pageModel = service.getFullPageModelForPreview(req, res, ref, properties, partial);
         model.addAttribute("pageModel", pageModel);
         model.addAttribute("isPreview", true);
+        model.addAttribute("ts", previewTemplateSupport);
         return pageModel.getPage().getName();
     }
 

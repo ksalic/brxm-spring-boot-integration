@@ -1,6 +1,7 @@
 package com.bloomreach.pagemodel.api.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.JsonNode;
 
 public class DocumentRef {
     private String ref;
@@ -22,4 +23,5 @@ public class DocumentRef {
         }
         return ref;
     }
+
 }

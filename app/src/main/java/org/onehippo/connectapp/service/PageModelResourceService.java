@@ -13,18 +13,21 @@ import org.springframework.util.MultiValueMap;
 @Service
 public final class PageModelResourceService {
 
-    @Value("${base.resourceapi.url}")
+    @Value("${brxm.base.pagemodel.url}")
     private String baseUrl;
 
-    @Value("${base.preview.resourcepai.url}")
+    @Value("${brxm.base.preview.pagemodel.url}")
     private String previewBaseUrl;
+
+    @Value("${brxm.base.preview.prefix}")
+    private String previewBasePrefix;
 
     public PageModel getPageModel(final HttpServletRequest req, final HttpServletResponse res) {
         return PageModelRequestUtils.getPageModel(baseUrl, req, res);
     }
 
     public PageModel getFullPageModelForPreview(final HttpServletRequest req, final HttpServletResponse res, final String ref, final MultiValueMap<String, Object> properties, final boolean partial) {
-        return PageModelRequestUtils.getFullPageModelForPreview(previewBaseUrl, req, res, ref, properties, partial);
+        return PageModelRequestUtils.getFullPageModelForPreview(previewBaseUrl, previewBasePrefix, req, res, ref, properties, partial);
     }
 
 
