@@ -130,7 +130,7 @@ public class UrlProxy {
         //InputStream originalResponseStream //= targetRequest.getResponseBodyAsStream();
         String source = targetRequest.getResponseBodyAsString();
 
-        String converted = SpaHtmlUtils.convertToSpaEnabledHtml(source, requestTarget, requestTargetSpaSupport, hsRequest);
+        String converted = SpaHtmlUtils.convertToSpaEnabledHtml(source, requestTarget, requestTargetSpaSupport, hsRequest, hsResponse);
 
         InputStream originalResponseStream = new ByteArrayInputStream(converted.getBytes());
         //the body might be null, i.e. for responses with cache-headers which leave out the body

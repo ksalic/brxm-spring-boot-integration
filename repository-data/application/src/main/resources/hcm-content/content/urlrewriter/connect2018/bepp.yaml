@@ -47,7 +47,7 @@
     hippostdpubwf:creationDate: 2018-09-10T14:15:54.798+02:00
     hippostdpubwf:lastModificationDate: 2018-09-24T15:21:07.063+02:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-09-24T15:21:09.250+02:00
+    hippostdpubwf:publicationDate: 2018-09-24T16:43:13.335+02:00
     urlrewriter:rule: "<rule>\r\n   <name>BEPP Engine</name>\r\n   <from>^/_cmsinternal(.*)$</from>\r\
       \n   <set name=\"wildcard\">$1</set>\r\n   <run class=\"com.bloomreach.pagemodel.hst.bepp.RequestProxy\"\
       \ method=\"execute\">\r\n      <init-param>   \r\n         <param-name>target</param-name>\r\

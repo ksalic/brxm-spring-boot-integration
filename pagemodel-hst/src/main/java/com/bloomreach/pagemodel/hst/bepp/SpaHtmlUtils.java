@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -23,10 +24,9 @@ public class SpaHtmlUtils {
     private static final Logger log = LoggerFactory.getLogger(SpaHtmlUtils.class);
 
 
-    public static String convertToSpaEnabledHtml(final String source, final String baseUrl, final String spaSupportUrl, final HttpServletRequest hsRequest) {
+    public static String convertToSpaEnabledHtml(final String source, final String baseUrl, final String spaSupportUrl, final HttpServletRequest hsRequest, final HttpServletResponse hsResponse) {
         if (StringUtils.isNotEmpty(spaSupportUrl)) {
-            PageModelServiceClient client = new PageModelServiceClient();
-            FlatComponentModelMap flatModelMap = client.getFlatListModelForPreview(spaSupportUrl, hsRequest, "");
+            FlatComponentModelMap flatModelMap = PageModelServiceClient.getFlatListModelForPreview(spaSupportUrl, hsRequest, hsResponse);
             return convertToSpaEnabledHtml(source, baseUrl, flatModelMap);
         }
         return source;

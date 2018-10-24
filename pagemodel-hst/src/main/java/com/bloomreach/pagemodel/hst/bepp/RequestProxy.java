@@ -1,17 +1,20 @@
 package com.bloomreach.pagemodel.hst.bepp;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.*;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.*;
+import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.InputStreamEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.BasicHttpClientConnectionManager;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.tuckey.web.filters.urlrewrite.utils.Log;
-import org.tuckey.web.filters.urlrewrite.utils.StringUtils;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.http.HttpServletRequest;
@@ -22,9 +25,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.charset.Charset;
+import java.util.Arrays;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import static org.apache.commons.codec.CharEncoding.UTF_8;
@@ -142,7 +149,7 @@ public final class RequestProxy {
 
                 String source = IOUtils.toString(response.getEntity().getContent(), UTF_8);
 
-                String converted = SpaHtmlUtils.convertToSpaEnabledHtml(source, requestTarget, requestTargetSpaSupport, hsRequest);
+                String converted = SpaHtmlUtils.convertToSpaEnabledHtml(source, requestTarget, requestTargetSpaSupport, hsRequest, hsResponse);
 
                 InputStream originalResponseStream = new ByteArrayInputStream(converted.getBytes());
                 //the body might be null, i.e. for responses with cache-headers which leave out the body
@@ -214,10 +221,22 @@ public final class RequestProxy {
                 .build();
 
         method.setConfig(config);
+
+
+        String queryString = hsRequest.getQueryString();
+
         try {
-            method.setURI(targetUrl.toURI());
-        }
-        catch(URISyntaxException e) {
+            if(StringUtils.isNotEmpty(queryString)){
+                List<NameValuePair> parse = URLEncodedUtils.parse(queryString, Charset.defaultCharset() );
+                URIBuilder builder = new URIBuilder(targetUrl.toURI());
+                builder.setParameters(parse);
+                URI build = builder.build();
+                method.setURI(build);
+            }else{
+                method.setURI(targetUrl.toURI());
+            }
+
+        } catch(URISyntaxException e) {
             throw new IOException(e);
         }
 

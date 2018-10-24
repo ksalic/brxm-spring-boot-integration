@@ -7,10 +7,12 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.NotAllowedException;
 
 import com.bloomreach.pagemodel.api.model.ComponentModel;
 import com.bloomreach.pagemodel.api.model.PageModel;
+import com.bloomreach.pagemodel.api.util.PageModelRequestUtils;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import org.springframework.http.HttpEntity;
@@ -22,6 +24,7 @@ import static org.springframework.http.HttpMethod.GET;
 
 public class PageModelServiceClient {
 
+    @Deprecated
     public PageModel getPageModelForPreview(final String previewBaseUrl, final HttpServletRequest request, final String path) {
         HttpHeaders headers = new HttpHeaders();
         if (request.getCookies() == null) {
@@ -46,13 +49,13 @@ public class PageModelServiceClient {
         return pageModel;
     }
 
-    public FlatComponentModelMap getFlatListModelForPreview(final String previewBaseUrl, final HttpServletRequest request, final String path) {
-        PageModel pageModelForPreview = getPageModelForPreview(previewBaseUrl, request, path);
+    public static FlatComponentModelMap getFlatListModelForPreview(final String previewBaseUrl, final HttpServletRequest request, final HttpServletResponse response) {
+        PageModel pageModelForPreview = PageModelRequestUtils.getPageModelForPreview(previewBaseUrl, request, response);
         FlatComponentModelMap listModel = convertFromPageModel(pageModelForPreview);
         return listModel;
     }
 
-    public FlatComponentModelMap convertFromPageModel(final PageModel pageModel) {
+    public static FlatComponentModelMap convertFromPageModel(final PageModel pageModel) {
         FlatComponentModelMap listModel = new FlatComponentModelMap();
         List<ComponentModel> components = pageModel.getPage().getComponents();
         Map<String, JsonNode> contentNode = pageModel.getContentNode();
@@ -61,7 +64,7 @@ public class PageModelServiceClient {
         return listModel;
     }
 
-    private void populateFlatContentListModel(final FlatComponentModelMap listModel, final Map<String, JsonNode> componentModels) {
+    private static void populateFlatContentListModel(final FlatComponentModelMap listModel, final Map<String, JsonNode> componentModels) {
         componentModels.entrySet().stream().filter(content -> content.getValue().has("_meta")).forEach(content -> {
             String key = content.getKey();
             JsonNode jsonContentNode = content.getValue();
@@ -73,7 +76,7 @@ public class PageModelServiceClient {
         });
     }
 
-    public void populateFlatComponentListModel(final FlatComponentModelMap list, final Collection<ComponentModel> componentModels) {
+    public static void populateFlatComponentListModel(final FlatComponentModelMap list, final Collection<ComponentModel> componentModels) {
         componentModels.stream()
                 .forEach(componentModel -> {
                     if (componentModel.getMeta().getBeginNodeSpan() != null) {
@@ -85,7 +88,7 @@ public class PageModelServiceClient {
                 });
     }
 
-    public FlatComponentModel createFromComponentModel(final ComponentModel componentModel) {
+    public static FlatComponentModel createFromComponentModel(final ComponentModel componentModel) {
         FlatComponentModel model = new FlatComponentModel();
         model.setId(componentModel.getID());
         model.setCommentStart(componentModel.getMeta().getStart());
