@@ -11,9 +11,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class TemplateSupport {
 
     private static final String EMPTY = "";
+    private static final String ORIGINAL = "original";
     private static final String COMPONENT_ID = "data-cms-component-id=\"%s\"";
     private static final String CONTENT_ID = "data-cms-content-id=\"%s\"";
     private static final ObjectMapper MAPPER = new ObjectMapper();
+    /**
+     * JSON property name prefix for a UUID-based identifier.
+     */
+    private static final String CONTENT_ID_JSON_NAME_PREFIX = "u";
 
     private boolean isPreview;
 
@@ -39,6 +44,11 @@ public class TemplateSupport {
         return EMPTY;
     }
 
+    static String representationIdToJsonPropName(final String uuid) {
+        return new StringBuilder(uuid.length()).append(CONTENT_ID_JSON_NAME_PREFIX).append(uuid.replaceAll("-", ""))
+                .toString();
+    }
+
     public JsonNode find(Object root, String pointer) {
         JsonNode jsonNode = MAPPER.convertValue(root, JsonNode.class);
         return jsonNode.at(JsonPointer.valueOf(pointer));
@@ -49,13 +59,21 @@ public class TemplateSupport {
         return jsonNode.at(JsonPointer.valueOf(pointer.asText()));
     }
 
+    public String getImageUrl(PageModel root, JsonNode pointer) {
+        return getImageUrl(root, pointer, ORIGINAL);
+    }
+
     public String getImageUrl(PageModel root, JsonNode pointer, String variant) {
         JsonNode jsonNode = MAPPER.convertValue(root, JsonNode.class);
         Optional<JsonNode> image = Optional.of(jsonNode.at(JsonPointer.valueOf(pointer.asText())));
+        String imageVariantUrl = null;
         if (image.isPresent()) {
-            String imageVariantUrl = image.get().get(variant).get("_links").get("site").get("href").asText();
-            return imageVariantUrl;
+            if(!isPreview){
+                imageVariantUrl = root.getLinks().get("site").getHref().replace("/site/", "") + image.get().get(variant).get("_links").get("site").get("href").asText();
+            }else{
+                imageVariantUrl = image.get().get(variant).get("_links").get("site").get("href").asText();
+            }
         }
-        return EMPTY;
+        return imageVariantUrl;
     }
 }

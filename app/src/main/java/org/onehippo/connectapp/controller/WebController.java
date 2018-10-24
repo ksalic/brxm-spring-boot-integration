@@ -34,14 +34,6 @@ public class WebController {
         return pageModel.getPage().getName();
     }
 
-//    @GetMapping(path = "/**")
-//    public String getPage(Model model, HttpServletRequest req) {
-//        PageModel pageModel = service.getPageModel("/");
-//        model.addAttribute("pageModel", pageModel);
-//        model.addAttribute("isPreview", false);
-//        return "home";
-//    }
-
     @GetMapping(path = "/_cmsinternal/**")
     public String getCmsInternalPage(Model model, HttpServletRequest req, HttpServletResponse res,
                                      @RequestParam(value = "partial", required = false) boolean partial,

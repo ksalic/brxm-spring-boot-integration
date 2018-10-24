@@ -23,8 +23,7 @@
                       <#assign document=pageModel.contentNode[ref]/>
                     <h2>${document.get("title").asText()}</h2>
                       ${document.get("content").get("value").asText()}
-                      <#assign image=ts.find(pageModel, document.get("image").get("$ref"))/>
-                    <img src="http://localhost:8080${image.get("original").get("_links").get("site").get("href").asText()}"/>
+                    <img src="${ts.getImageUrl(pageModel, document.get("image").get("$ref"))}"/>
                   </#if>
                 </article>
               </#if>
