@@ -1,10 +1,12 @@
 package com.bloomreach.pagemodel.api.util;
 
+import java.io.IOException;
 import java.util.UUID;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.WebServiceException;
 
 import com.bloomreach.pagemodel.api.model.PageModel;
 
@@ -14,7 +16,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.WebUtils;
 
@@ -47,7 +49,7 @@ public class PageModelRequestUtils {
         Cookie visitor = WebUtils.getCookie(req, "_visitor");
         String visitorId = UUID.randomUUID().toString();
         if (jsessionId == null) {
-            throw new UnauthorizedException("Not Authorized");
+            throw new UnauthorizedException("Not authorized");
         }
         if (visitor != null) {
             visitorId = visitor.getValue();
@@ -84,7 +86,7 @@ public class PageModelRequestUtils {
         Cookie visitor = WebUtils.getCookie(req, "_visitor");
         String visitorId = UUID.randomUUID().toString();
         if (jsessionId == null) {
-            throw new UnauthorizedException("Not Authorized");
+            throw new UnauthorizedException("Not authorized");
         }
         if (visitor != null) {
             visitorId = visitor.getValue();
@@ -110,22 +112,11 @@ public class PageModelRequestUtils {
     }
 
 
-    @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
-    public static class UnauthorizedException extends RuntimeException {
-        public UnauthorizedException() {
-            super();
-        }
-
-        public UnauthorizedException(String message, Throwable cause) {
-            super(message, cause);
-        }
+    public static class UnauthorizedException extends WebServiceException {
 
         public UnauthorizedException(String message) {
             super(message);
         }
 
-        public UnauthorizedException(Throwable cause) {
-            super(cause);
-        }
     }
 }

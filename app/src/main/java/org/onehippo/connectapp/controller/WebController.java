@@ -21,6 +21,7 @@ public class WebController {
     @Autowired
     private PageModelResourceService service;
 
+
     private TemplateSupport previewTemplateSupport = new TemplateSupport(true);
     private TemplateSupport liveTemplateSupport = new TemplateSupport();
 

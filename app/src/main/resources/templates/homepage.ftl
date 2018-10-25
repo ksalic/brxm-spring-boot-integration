@@ -17,8 +17,10 @@
           <div ${ts.component(component)}>
             <div>
               <#if component.models??>
-                <#assign ref>${component.models.document.reference}</#assign>
-                <article ${ts.content(ref)}>
+
+                  <#assign ref>${component.models.document.reference}</#assign>
+
+                <article ${ts.content(component.models.document)}>
                   <#if pageModel.contentNode[ref]??>
                       <#assign document=pageModel.contentNode[ref]/>
                     <h2>${document.get("title").asText()}</h2>
@@ -26,6 +28,7 @@
                     <img src="${ts.getImageUrl(pageModel, document.get("image").get("$ref"))}"/>
                   </#if>
                 </article>
+
               </#if>
             </div>
           </div>

@@ -3,6 +3,7 @@ package com.bloomreach.pagemodel.api.util;
 import java.util.Optional;
 
 import com.bloomreach.pagemodel.api.model.ComponentModel;
+import com.bloomreach.pagemodel.api.model.DocumentRef;
 import com.bloomreach.pagemodel.api.model.PageModel;
 import com.fasterxml.jackson.core.JsonPointer;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -40,6 +41,13 @@ public class TemplateSupport {
     public String content(String reference) {
         if (reference != null && this.isPreview) {
             return String.format(CONTENT_ID, reference);
+        }
+        return EMPTY;
+    }
+
+    public String content(DocumentRef reference) {
+        if (reference != null && this.isPreview) {
+            return String.format(CONTENT_ID, reference.getReference());
         }
         return EMPTY;
     }
