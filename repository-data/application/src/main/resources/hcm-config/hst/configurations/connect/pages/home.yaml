@@ -4,6 +4,11 @@ definitions:
       jcr:primaryType: hst:component
       /header:
         jcr:primaryType: hst:component
+        /menu:
+          jcr:primaryType: hst:component
+          hst:parameternames: [menu]
+          hst:parametervalues: [main]
+          hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
       /body:
         jcr:primaryType: hst:component
         /container:
