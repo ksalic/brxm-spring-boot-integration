@@ -13,7 +13,7 @@ public class TemplateSupport {
 
     private static final String EMPTY = "";
     private static final String ORIGINAL = "original";
-    private static final String COMPONENT_ID = "data-cms-component-id=\"%s\"";
+    private static final String COMPONENT_ID = "id=\"%s\" data-cms-component-id=\"%s\"";
     private static final String CONTENT_ID = "data-cms-content-id=\"%s\"";
     private static final ObjectMapper MAPPER = new ObjectMapper();
     /**
@@ -33,7 +33,7 @@ public class TemplateSupport {
 
     public String component(ComponentModel component) {
         if (component != null && this.isPreview) {
-            return String.format(COMPONENT_ID, component.getID());
+            return String.format(COMPONENT_ID, component.getID(), component.getID());
         }
         return EMPTY;
     }

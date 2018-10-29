@@ -1,0 +1,13 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/connect/hst:pages/home:
+      jcr:primaryType: hst:component
+      /header:
+        jcr:primaryType: hst:component
+      /body:
+        jcr:primaryType: hst:component
+        /container:
+          jcr:primaryType: hst:containercomponentreference
+          hst:referencecomponent: home/body-container
+      /footer:
+        jcr:primaryType: hst:component

@@ -139,6 +139,10 @@
       <version>20161123</version>
       <scope>runtime</scope>
     </dependency>
+    <dependency>
+      <groupId>org.onehippo.forge</groupId>
+      <artifactId>hst-api</artifactId>
+    </dependency>
   </dependencies>
   <build>
     <resources>

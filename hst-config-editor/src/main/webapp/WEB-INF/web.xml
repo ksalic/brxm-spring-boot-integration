@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0"
+         id="hst-config-editor">
+
+  <display-name>Base Demo Project Hst Config Editor</display-name>
+  <description>Base Demo Project Hst Config Editor</description>
+
+  <env-entry>
+    <env-entry-name>logging/contextName</env-entry-name>
+    <env-entry-type>java.lang.String</env-entry-type>
+    <env-entry-value>hst-config-editor</env-entry-value>
+  </env-entry>
+
+</web-app>
+

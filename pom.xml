@@ -72,6 +72,8 @@
 
     <hippo.cms.locales>nl,de,fr,es,zh</hippo.cms.locales>
     <buildNumber>${maven.build.timestamp}</buildNumber>
+
+    <hst-api.version>0.1.1</hst-api.version>
   </properties>
 
   <repositories>
@@ -89,10 +91,20 @@
       <name>Hippo Enterprise Maven 2</name>
       <url>https://maven.onehippo.com/maven2-enterprise</url>
     </repository>
+    <repository>
+      <id>hippo-maven2-forge</id>
+      <name>Hippo Maven 2 Forge Repository</name>
+      <url>http://maven.onehippo.com/maven2-forge/</url>
+    </repository>
   </repositories>
 
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>org.onehippo.forge</groupId>
+        <artifactId>hst-api</artifactId>
+        <version>${hst-api.version}</version>
+      </dependency>
       <dependency>
         <groupId>org.onehippo.cms7</groupId>
         <artifactId>hippo-essentials-plugin-sdk-api</artifactId>
@@ -220,6 +232,7 @@
         </property>
       </activation>
       <modules>
+        <module>hst-config-editor</module>
         <module>pagemodel-api</module>
         <module>pagemodel-hst</module>
         <module>repository-data</module>
@@ -271,6 +284,13 @@
                   <type>war</type>
                   <properties>
                     <context>/site</context>
+                  </properties>
+                </deployable>
+                <deployable>
+                  <location>${project.basedir}/hst-config-editor/target/hst-config-editor.war</location>
+                  <type>war</type>
+                  <properties>
+                    <context>/hst-config-editor</context>
                   </properties>
                 </deployable>
                 <!--<deployable>-->

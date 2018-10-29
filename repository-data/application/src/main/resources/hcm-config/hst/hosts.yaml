@@ -14,12 +14,18 @@ definitions:
           hst:homepage: root
           hst:mountpoint: /hst:hst/hst:sites/connect
           hst:pagemodelapi: resourceapi
-          /preview:
+          /api:
             .meta:residual-child-node-category: content
             jcr:primaryType: hst:mount
-            hst:pagemodelapi: resourceapi
-            hst:type: preview
-            /spa-support:
-              .meta:residual-child-node-category: content
-              jcr:primaryType: hst:mount
-              hst:namedpipeline: FlatSpaModelPipeline
+            hst:alias: api
+            hst:ismapped: false
+            hst:namedpipeline: RestApiPipeline
+            hst:types: [rest]
+          /hst-api:
+            .meta:residual-child-node-category: content
+            jcr:primaryType: hst:mount
+            hst:ismapped: false
+            hst:namedpipeline: HstApiRestPipeline
+            hst:responseheaders: ['Access-Control-Allow-Origin: *', 'Access-Control-Allow-Methods:
+                GET,POST,PUT,DELETE,OPTIONS', 'Access-Control-Allow-Headers: Origin,X-Requested-With,Content-Type,Accept,Authorization']
+            hst:types: [rest]

@@ -5,6 +5,6 @@
   hst:label: Banner
   hst:parameternames: [com.onehippo.cms7.targeting.TargetingParameterUtil.hide, document,
     org.hippoecm.hst.core.component.template]
-  hst:parametervalues: ['off', banners/banner1, 'webfile:/freemarker/hstdefault/essentials-banner.ftl']
+  hst:parametervalues: ['off', banners/banner2, 'webfile:/freemarker/hstdefault/essentials-banner.ftl']
   hst:template: essentials-banner
   hst:xtype: hst.item
