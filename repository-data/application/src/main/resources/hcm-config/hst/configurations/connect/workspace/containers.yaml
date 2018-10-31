@@ -48,5 +48,6 @@ definitions:
         /body-container:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:containercomponent
-          hst:xtype: hst.vbox
+          hst:xtype: hst.nomarkup
           hst:label: Body Container
+          hst:lastmodified: 2018-10-31T11:57:27.015+01:00

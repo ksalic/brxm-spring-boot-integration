@@ -10,7 +10,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-09-10T14:15:54.798+02:00
-    hippostdpubwf:lastModificationDate: 2018-09-24T15:20:21.803+02:00
+    hippostdpubwf:lastModificationDate: 2018-10-31T11:49:35.299+01:00
     hippostdpubwf:lastModifiedBy: admin
     hippostdpubwf:publicationDate: 2008-03-26T12:03:00+01:00
     urlrewriter:rule: "<rule>\r\n   <name>BEPP Engine</name>\r\n   <from>^/_cmsinternal(.*)$</from>\r\
@@ -19,6 +19,8 @@
       \n         <param-value>http://localhost:9090/_cmsinternal$1</param-value>\r\
       \n      </init-param>\r\n      <init-param> \r\n         <param-name>spa-support</param-name>\r\
       \n         <param-value>http://localhost:8080/site/_cmsinternal/resourceapi$1</param-value>\r\
+      \n      </init-param>\r\n      <init-param> \r\n         <param-name>extensionExclude</param-name>\r\
+      \n         <param-value>.css,.js,.eos,.svg,.woff,.jpg,.png,.gif</param-value>\r\
       \n      </init-param>\r\n   </run>\r\n   <to>null</to>\r\n</rule>"
   /bepp[2]:
     jcr:primaryType: urlrewriter:xmlrule
@@ -28,7 +30,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-09-10T14:15:54.798+02:00
-    hippostdpubwf:lastModificationDate: 2018-09-24T15:21:07.063+02:00
+    hippostdpubwf:lastModificationDate: 2018-10-31T11:52:11.977+01:00
     hippostdpubwf:lastModifiedBy: admin
     urlrewriter:rule: "<rule>\r\n   <name>BEPP Engine</name>\r\n   <from>^/_cmsinternal(.*)$</from>\r\
       \n   <set name=\"wildcard\">$1</set>\r\n   <run class=\"com.bloomreach.pagemodel.hst.bepp.RequestProxy\"\
@@ -36,6 +38,8 @@
       \n         <param-value>http://localhost:9090/_cmsinternal$1</param-value>\r\
       \n      </init-param>\r\n      <init-param> \r\n         <param-name>spa-support</param-name>\r\
       \n         <param-value>http://localhost:8080/site/_cmsinternal/resourceapi$1</param-value>\r\
+      \n      </init-param>\r\n      <init-param> \r\n         <param-name>extensionExclude</param-name>\r\
+      \n         <param-value>.css,.js,.eos,.svg,.woff,.jpg,.png,.gif</param-value>\r\
       \n      </init-param>\r\n   </run>\r\n   <to>null</to>\r\n</rule>"
   /bepp[3]:
     jcr:primaryType: urlrewriter:xmlrule
@@ -45,13 +49,15 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2018-09-10T14:15:54.798+02:00
-    hippostdpubwf:lastModificationDate: 2018-09-24T15:21:07.063+02:00
+    hippostdpubwf:lastModificationDate: 2018-10-31T11:52:11.977+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2018-09-24T16:43:13.335+02:00
+    hippostdpubwf:publicationDate: 2018-10-31T11:52:14.254+01:00
     urlrewriter:rule: "<rule>\r\n   <name>BEPP Engine</name>\r\n   <from>^/_cmsinternal(.*)$</from>\r\
       \n   <set name=\"wildcard\">$1</set>\r\n   <run class=\"com.bloomreach.pagemodel.hst.bepp.RequestProxy\"\
       \ method=\"execute\">\r\n      <init-param>   \r\n         <param-name>target</param-name>\r\
       \n         <param-value>http://localhost:9090/_cmsinternal$1</param-value>\r\
       \n      </init-param>\r\n      <init-param> \r\n         <param-name>spa-support</param-name>\r\
       \n         <param-value>http://localhost:8080/site/_cmsinternal/resourceapi$1</param-value>\r\
+      \n      </init-param>\r\n      <init-param> \r\n         <param-name>extensionExclude</param-name>\r\
+      \n         <param-value>.css,.js,.eos,.svg,.woff,.jpg,.png,.gif</param-value>\r\
       \n      </init-param>\r\n   </run>\r\n   <to>null</to>\r\n</rule>"

@@ -12,7 +12,8 @@ public class PageModelUtils {
         String id = partial.getID();
 
         List<ComponentModel> components = original.getPage().getComponents();
-        ComponentModel parentComponent = findComponent(components, id.substring(0, id.lastIndexOf('_')));
+        String parentId = id.substring(0, id.lastIndexOf('_'));
+        ComponentModel parentComponent = findComponent(components, parentId);
         ComponentModel component = findComponent(components, id);
         int index = parentComponent.getComponents().indexOf(component);
 
@@ -23,18 +24,19 @@ public class PageModelUtils {
         return original;
     }
 
+
+
     public static ComponentModel findComponent(final List<ComponentModel> componentModels, final String id) {
+        ComponentModel parent = null;
         for (ComponentModel componentModel : componentModels) {
             if (componentModel.getID().equals(id)) {
                 return componentModel;
             } else if (componentModel.getComponents() != null) {
-                return findComponent(componentModel.getComponents(), id);
+                parent = findComponent(componentModel.getComponents(), id);
             }
         }
-        return null;
+        return parent;
     }
-
-
 
 
 }

@@ -1,5 +1,7 @@
 package com.bloomreach.pagemodel.api.util;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Optional;
 
 import com.bloomreach.pagemodel.api.model.ComponentModel;
@@ -20,15 +22,30 @@ public class TemplateSupport {
      * JSON property name prefix for a UUID-based identifier.
      */
     private static final String CONTENT_ID_JSON_NAME_PREFIX = "u";
-
+    private String baseUrl;
+    private String previewBasePrefix;
     private boolean isPreview;
 
-    public TemplateSupport(final boolean isPreview) {
+    public TemplateSupport(final boolean isPreview, final String baseUrl, final String previewBasePrefix) {
         this.isPreview = isPreview;
+        this.baseUrl = baseUrl;
+        this.previewBasePrefix = previewBasePrefix;
     }
 
     public TemplateSupport() {
         this.isPreview = false;
+    }
+
+    static String representationIdToJsonPropName(final String uuid) {
+        return new StringBuilder(uuid.length()).append(CONTENT_ID_JSON_NAME_PREFIX).append(uuid.replaceAll("-", ""))
+                .toString();
+    }
+
+    public String resourceUrl(String resource) {
+        if (isPreview) {
+            return baseUrl + previewBasePrefix + resource;
+        }
+        return resource;
     }
 
     public String component(ComponentModel component) {
@@ -52,11 +69,6 @@ public class TemplateSupport {
         return EMPTY;
     }
 
-    static String representationIdToJsonPropName(final String uuid) {
-        return new StringBuilder(uuid.length()).append(CONTENT_ID_JSON_NAME_PREFIX).append(uuid.replaceAll("-", ""))
-                .toString();
-    }
-
     public JsonNode find(Object root, String pointer) {
         JsonNode jsonNode = MAPPER.convertValue(root, JsonNode.class);
         return jsonNode.at(JsonPointer.valueOf(pointer));
@@ -76,12 +88,27 @@ public class TemplateSupport {
         Optional<JsonNode> image = Optional.of(jsonNode.at(JsonPointer.valueOf(pointer.asText())));
         String imageVariantUrl = null;
         if (image.isPresent()) {
-            if(!isPreview){
-                imageVariantUrl = root.getLinks().get("site").getHref().replace("/site/", "") + image.get().get(variant).get("_links").get("site").get("href").asText();
-            }else{
+            if (!isPreview) {
+                imageVariantUrl = getUrl(root.getLinks().get("site").getHref()) + image.get().get(variant).get("_links").get("site").get("href").asText();
+            } else {
                 imageVariantUrl = image.get().get(variant).get("_links").get("site").get("href").asText();
             }
         }
         return imageVariantUrl;
+    }
+
+    public String getUrl(String url) {
+        String newUrl = url;
+        try {
+            URL aURL = new URL(url);
+            StringBuffer buffer = new StringBuffer();
+            buffer.append(aURL.getProtocol());
+            buffer.append("://");
+            buffer.append(aURL.getAuthority());
+            newUrl = buffer.toString();
+        } catch (MalformedURLException e) {
+            //e.printStackTrace();
+        }
+        return newUrl;
     }
 }

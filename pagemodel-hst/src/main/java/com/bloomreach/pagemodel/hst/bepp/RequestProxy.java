@@ -1,25 +1,5 @@
 package com.bloomreach.pagemodel.hst.bepp;
 
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.http.*;
-import org.apache.http.client.config.RequestConfig;
-import org.apache.http.client.methods.*;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.client.utils.URLEncodedUtils;
-import org.apache.http.entity.ContentType;
-import org.apache.http.entity.InputStreamEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.impl.conn.BasicHttpClientConnectionManager;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
-import org.tuckey.web.filters.urlrewrite.utils.Log;
-
-import javax.servlet.ServletConfig;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,16 +9,47 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.http.Header;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpHost;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.config.RequestConfig;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.client.methods.HttpRequestBase;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.client.utils.URLEncodedUtils;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.InputStreamEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.impl.conn.BasicHttpClientConnectionManager;
+import org.apache.http.util.EntityUtils;
+import org.tuckey.web.filters.urlrewrite.utils.Log;
+
 import static org.apache.commons.codec.CharEncoding.UTF_8;
 
 /**
  * This class is responsible for a proxy http request.
- * It takes the incoming request and then it creates a new request to the target address and copies the response of that proxy request
+ * It takes the incoming request and then it creates a new request to the target address and copies the response of that
+ * proxy request
  * to the response of the original request.
  * <p/>
  * This class uses the commons-httpclient classes from Apache.
@@ -50,118 +61,11 @@ import static org.apache.commons.codec.CharEncoding.UTF_8;
 public final class RequestProxy {
     private static final Log log = Log.getLog(RequestProxy.class);
     private static final Pattern NUMBER_PATTERN = Pattern.compile("[0-9]+");
-
-    public RequestProxy() {
-    }
-
     private String target;
     private String spaSupport;
+    private List<String> extensionExcludes;
 
-    public void init(ServletConfig config) {
-        target = config.getInitParameter("target");
-        log.info("Setting the target URL: " + target);
-
-        spaSupport = config.getInitParameter("spa-support");
-        log.info("Setting the spa support URL: " + spaSupport);
-    }
-
-
-
-    /**
-     * This method performs the proxying of the request to the target address.
-     *
-     * @param hsRequest  The request data which should be send to the
-     * @param hsResponse The response data which will contain the data returned by the proxied request to target.
-     * @throws java.io.IOException Passed on from the connection logic.
-     */
-    public  void execute(final HttpServletRequest hsRequest, final HttpServletResponse hsResponse) throws IOException {
-
-        String requestTarget = target.replace("$1", hsRequest.getAttribute("wildcard").toString());
-        String requestTargetSpaSupport = spaSupport.replace("$1", hsRequest.getAttribute("wildcard").toString());
-
-
-        if (log.isInfoEnabled()) {
-            log.info("execute, target is " + requestTarget);
-            log.info("response commit state: " + hsResponse.isCommitted());
-        }
-
-        if (StringUtils.isBlank(target)) {
-            log.error("The target address is not given. Please provide a target address.");
-            return;
-        }
-
-        log.info("checking url");
-        URL url;
-        try {
-            url = new URL(requestTarget);
-        } catch (MalformedURLException e) {
-            log.error("The provided target url is not valid.", e);
-            return;
-        }
-
-        log.info("setting up the host configuration");
-
-        RequestConfig.Builder configBuilder = RequestConfig.custom();
-
-        HttpHost proxyHost = getUseProxyServer((String) hsRequest.getAttribute("use-proxy"));
-        if (proxyHost != null) configBuilder.setProxy(proxyHost);
-        RequestConfig config = configBuilder.build();
-
-        if (log.isInfoEnabled()) {
-            log.info("config is " + config.toString());
-        }
-
-        final int port = url.getPort() != -1 ? url.getPort() : url.getDefaultPort();
-        url = new URL( url.getProtocol(), url.getHost(), port, url.getFile());
-
-        final HttpRequestBase targetRequest = setupProxyRequest(hsRequest, url);
-        if (targetRequest == null) {
-            log.error("Unsupported request method found: " + hsRequest.getMethod());
-            return;
-        }
-
-        //perform the request to the target server
-        try (CloseableHttpClient client = HttpClients.custom()
-                .setDefaultRequestConfig(config)
-                .setConnectionManager(new BasicHttpClientConnectionManager())
-                .build()) {
-            if (log.isInfoEnabled()) {
-                log.info("executeMethod / fetching data ...");
-            }
-
-            // holder variable, mainly to allow use of try-with-resources below
-            HttpUriRequest requestParam = targetRequest;
-
-//            targetRequest.sethe
-
-            if (targetRequest instanceof HttpEntityEnclosingRequestBase) {
-                final InputStreamEntity entity = new InputStreamEntity(
-                        hsRequest.getInputStream(), hsRequest.getContentLength(), ContentType.create(hsRequest.getContentType()));
-                final HttpEntityEnclosingRequestBase entityEnclosingMethod = (HttpEntityEnclosingRequestBase) targetRequest;
-                entityEnclosingMethod.setEntity(entity);
-                requestParam = entityEnclosingMethod;
-            }
-
-            try (CloseableHttpResponse response = client.execute(requestParam)) {
-
-                //copy the target response headers to our response
-                setupResponseHeaders(targetRequest, response, hsResponse);
-
-                String source = IOUtils.toString(response.getEntity().getContent(), UTF_8);
-
-                String converted = SpaHtmlUtils.convertToSpaEnabledHtml(source, requestTarget, requestTargetSpaSupport, hsRequest, hsResponse);
-
-                InputStream originalResponseStream = new ByteArrayInputStream(converted.getBytes());
-                //the body might be null, i.e. for responses with cache-headers which leave out the body
-                if (originalResponseStream != null) {
-                    OutputStream responseStream = hsResponse.getOutputStream();
-                    copyStream(originalResponseStream, responseStream);
-                }
-                EntityUtils.consume(response.getEntity());
-
-                log.info("set up response, result code was " + response.getStatusLine().getStatusCode());
-            }
-        }
+    public RequestProxy() {
     }
 
     public static void copyStream(InputStream in, OutputStream out) throws IOException {
@@ -171,7 +75,6 @@ public final class RequestProxy {
             out.write(buf, 0, count);
         }
     }
-
 
     public static HttpHost getUseProxyServer(String useProxyServer) {
         HttpHost proxyHost = null;
@@ -226,24 +129,24 @@ public final class RequestProxy {
         String queryString = hsRequest.getQueryString();
 
         try {
-            if(StringUtils.isNotEmpty(queryString)){
-                List<NameValuePair> parse = URLEncodedUtils.parse(queryString, Charset.defaultCharset() );
+            if (StringUtils.isNotEmpty(queryString)) {
+                List<NameValuePair> parse = URLEncodedUtils.parse(queryString, Charset.defaultCharset());
                 URIBuilder builder = new URIBuilder(targetUrl.toURI());
                 builder.setParameters(parse);
                 URI build = builder.build();
                 method.setURI(build);
-            }else{
+            } else {
                 method.setURI(targetUrl.toURI());
             }
 
-        } catch(URISyntaxException e) {
+        } catch (URISyntaxException e) {
             throw new IOException(e);
         }
 
         Enumeration e = hsRequest.getHeaderNames();
         if (e != null) {
             while (e.hasMoreElements()) {
-                String headerName = (String) e.nextElement();
+                String headerName = (String)e.nextElement();
                 if ("host".equalsIgnoreCase(headerName)) {
                     //the host value is set by the http client
                     continue;
@@ -262,19 +165,21 @@ public final class RequestProxy {
 
                 Enumeration values = hsRequest.getHeaders(headerName);
                 while (values.hasMoreElements()) {
-                    String headerValue = (String) values.nextElement();
+                    String headerValue = (String)values.nextElement();
                     log.info("setting proxy request parameter:" + headerName + ", value: " + headerValue);
                     method.addHeader(headerName, headerValue);
                 }
             }
         }
 
-        if ( log.isInfoEnabled() ) log.info("proxy query string " + method.getRequestLine());
+        if (log.isInfoEnabled()) {
+            log.info("proxy query string " + method.getRequestLine());
+        }
         return method;
     }
 
     private static void setupResponseHeaders(HttpRequestBase httpMethod, CloseableHttpResponse httpResponse, HttpServletResponse hsResponse) {
-        if ( log.isInfoEnabled() ) {
+        if (log.isInfoEnabled()) {
             log.info("setupResponseHeaders");
             log.info("status text: " + httpResponse.getStatusLine().getReasonPhrase());
             log.info("status line: " + httpResponse.getStatusLine().getStatusCode());
@@ -309,6 +214,133 @@ public final class RequestProxy {
 
         if (httpResponse.getStatusLine().getStatusCode() != 200) {
             hsResponse.setStatus(httpResponse.getStatusLine().getStatusCode());
+        }
+    }
+
+    public void init(ServletConfig config) {
+        target = config.getInitParameter("target");
+        log.info("Setting the target URL: " + target);
+
+        spaSupport = config.getInitParameter("spa-support");
+        log.info("Setting the spa support URL: " + spaSupport);
+
+        String extensionExclude = config.getInitParameter("extensionExclude");
+        log.info("Extensions Excluded: " + extensionExclude);
+        if (StringUtils.isNotEmpty(extensionExclude)) {
+            extensionExcludes = new ArrayList<>();
+            this.extensionExcludes = Arrays.asList(StringUtils.split(extensionExclude.trim(), ','));
+        }
+    }
+
+    /**
+     * This method performs the proxying of the request to the target address.
+     *
+     * @param hsRequest  The request data which should be send to the
+     * @param hsResponse The response data which will contain the data returned by the proxied request to target.
+     * @throws java.io.IOException Passed on from the connection logic.
+     */
+    public void execute(final HttpServletRequest hsRequest, final HttpServletResponse hsResponse) throws IOException {
+
+        String requestTarget = target.replace("$1", hsRequest.getAttribute("wildcard").toString());
+        String requestTargetSpaSupport = spaSupport.replace("$1", hsRequest.getAttribute("wildcard").toString());
+
+        boolean linkExcluded = false;
+
+        if (extensionExcludes != null && !extensionExcludes.isEmpty()) {
+            for (String endsWith : extensionExcludes) {
+                if (requestTarget.endsWith(endsWith)) {
+                    linkExcluded = true;
+                    break;
+                }
+            }
+        }
+
+
+        if (log.isInfoEnabled()) {
+            log.info("execute, target is " + requestTarget);
+            log.info("response commit state: " + hsResponse.isCommitted());
+        }
+
+        if (StringUtils.isBlank(target)) {
+            log.error("The target address is not given. Please provide a target address.");
+            return;
+        }
+
+        log.info("checking url");
+        URL url;
+        try {
+            url = new URL(requestTarget);
+        } catch (MalformedURLException e) {
+            log.error("The provided target url is not valid.", e);
+            return;
+        }
+
+        log.info("setting up the host configuration");
+
+        RequestConfig.Builder configBuilder = RequestConfig.custom();
+
+        HttpHost proxyHost = getUseProxyServer((String)hsRequest.getAttribute("use-proxy"));
+        if (proxyHost != null) {
+            configBuilder.setProxy(proxyHost);
+        }
+        RequestConfig config = configBuilder.build();
+
+        if (log.isInfoEnabled()) {
+            log.info("config is " + config.toString());
+        }
+
+        final int port = url.getPort() != -1 ? url.getPort() : url.getDefaultPort();
+        url = new URL(url.getProtocol(), url.getHost(), port, url.getFile());
+
+        final HttpRequestBase targetRequest = setupProxyRequest(hsRequest, url);
+        if (targetRequest == null) {
+            log.error("Unsupported request method found: " + hsRequest.getMethod());
+            return;
+        }
+
+        //perform the request to the target server
+        try (CloseableHttpClient client = HttpClients.custom()
+                .setDefaultRequestConfig(config)
+                .setConnectionManager(new BasicHttpClientConnectionManager())
+                .build()) {
+            if (log.isInfoEnabled()) {
+                log.info("executeMethod / fetching data ...");
+            }
+
+            // holder variable, mainly to allow use of try-with-resources below
+            HttpUriRequest requestParam = targetRequest;
+
+//            targetRequest.sethe
+
+            if (targetRequest instanceof HttpEntityEnclosingRequestBase) {
+                final InputStreamEntity entity = new InputStreamEntity(
+                        hsRequest.getInputStream(), hsRequest.getContentLength(), ContentType.create(hsRequest.getContentType()));
+                final HttpEntityEnclosingRequestBase entityEnclosingMethod = (HttpEntityEnclosingRequestBase)targetRequest;
+                entityEnclosingMethod.setEntity(entity);
+                requestParam = entityEnclosingMethod;
+            }
+
+            try (CloseableHttpResponse response = client.execute(requestParam)) {
+
+                //copy the target response headers to our response
+                setupResponseHeaders(targetRequest, response, hsResponse);
+
+                String source = IOUtils.toString(response.getEntity().getContent(), UTF_8);
+
+                if(!linkExcluded){
+                    source = SpaHtmlUtils.convertToSpaEnabledHtml(source, requestTarget, requestTargetSpaSupport, hsRequest, hsResponse);
+                }
+
+                InputStream originalResponseStream = new ByteArrayInputStream(source.getBytes());
+                //the body might be null, i.e. for responses with cache-headers which leave out the body
+                if (originalResponseStream != null) {
+                    OutputStream responseStream = hsResponse.getOutputStream();
+                    copyStream(originalResponseStream, responseStream);
+                }
+                EntityUtils.consume(response.getEntity());
+
+                log.info("set up response, result code was " + response.getStatusLine().getStatusCode());
+            }
         }
     }
 }

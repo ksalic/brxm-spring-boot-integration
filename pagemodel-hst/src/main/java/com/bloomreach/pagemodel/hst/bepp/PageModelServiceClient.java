@@ -24,6 +24,59 @@ import static org.springframework.http.HttpMethod.GET;
 
 public class PageModelServiceClient {
 
+    public static FlatComponentModelMap getFlatListModelForPreview(final String previewBaseUrl, final HttpServletRequest request, final HttpServletResponse response) {
+        PageModel pageModelForPreview = PageModelRequestUtils.getPageModelForPreview(previewBaseUrl, request, response);
+        FlatComponentModelMap listModel = convertFromPageModel(pageModelForPreview);
+        return listModel;
+    }
+
+    public static FlatComponentModelMap convertFromPageModel(final PageModel pageModel) {
+        FlatComponentModelMap listModel = new FlatComponentModelMap();
+        List<ComponentModel> components = pageModel.getPage().getComponents();
+        Map<String, JsonNode> contentNode = pageModel.getContentNode();
+        populateFlatComponentListModel(listModel, components);
+        populateFlatContentListModel(listModel, contentNode);
+        return listModel;
+    }
+
+    private static void populateFlatContentListModel(final FlatComponentModelMap listModel, final Map<String, JsonNode> contentModels) {
+        if (contentModels != null) {
+            contentModels.entrySet().stream().filter(content -> content.getValue().has("_meta")).forEach(content -> {
+                String key = content.getKey();
+                JsonNode jsonContentNode = content.getValue();
+                String contentComment = jsonContentNode.get("_meta").get("beginNodeSpan").get(0).get("data").asText();
+                FlatComponentModel model = new FlatComponentModel();
+                model.setId(key);
+                model.setCommentStart(contentComment);
+                listModel.putContent(key, model);
+            });
+        }
+    }
+
+    public static void populateFlatComponentListModel(final FlatComponentModelMap list, final Collection<ComponentModel> componentModels) {
+        if (componentModels != null) {
+            componentModels.stream()
+                    .forEach(componentModel -> {
+                        if (componentModel.getMeta().getBeginNodeSpan() != null) {
+                            list.putComponent(componentModel.getID(), createFromComponentModel(componentModel));
+                        }
+                        if (componentModel.getComponents() != null) {
+                            populateFlatComponentListModel(list, componentModel.getNamedComponents().values());
+                        }
+                    });
+        }
+    }
+
+    public static FlatComponentModel createFromComponentModel(final ComponentModel componentModel) {
+        FlatComponentModel model = new FlatComponentModel();
+        model.setId(componentModel.getID());
+        model.setCommentStart(componentModel.getMeta().getStart());
+        if (componentModel.getMeta().getEndNodeSpan() != null) {
+            model.setCommentEnd(componentModel.getMeta().getEnd());
+        }
+        return model;
+    }
+
     @Deprecated
     public PageModel getPageModelForPreview(final String previewBaseUrl, final HttpServletRequest request, final String path) {
         HttpHeaders headers = new HttpHeaders();
@@ -47,54 +100,5 @@ public class PageModelServiceClient {
                 PageModel.class);
         PageModel pageModel = exchange.getBody();
         return pageModel;
-    }
-
-    public static FlatComponentModelMap getFlatListModelForPreview(final String previewBaseUrl, final HttpServletRequest request, final HttpServletResponse response) {
-        PageModel pageModelForPreview = PageModelRequestUtils.getPageModelForPreview(previewBaseUrl, request, response);
-        FlatComponentModelMap listModel = convertFromPageModel(pageModelForPreview);
-        return listModel;
-    }
-
-    public static FlatComponentModelMap convertFromPageModel(final PageModel pageModel) {
-        FlatComponentModelMap listModel = new FlatComponentModelMap();
-        List<ComponentModel> components = pageModel.getPage().getComponents();
-        Map<String, JsonNode> contentNode = pageModel.getContentNode();
-        populateFlatComponentListModel(listModel, components);
-        populateFlatContentListModel(listModel, contentNode);
-        return listModel;
-    }
-
-    private static void populateFlatContentListModel(final FlatComponentModelMap listModel, final Map<String, JsonNode> componentModels) {
-        componentModels.entrySet().stream().filter(content -> content.getValue().has("_meta")).forEach(content -> {
-            String key = content.getKey();
-            JsonNode jsonContentNode = content.getValue();
-            String contentComment = jsonContentNode.get("_meta").get("beginNodeSpan").get(0).get("data").asText();
-            FlatComponentModel model = new FlatComponentModel();
-            model.setId(key);
-            model.setCommentStart(contentComment);
-            listModel.putContent(key, model);
-        });
-    }
-
-    public static void populateFlatComponentListModel(final FlatComponentModelMap list, final Collection<ComponentModel> componentModels) {
-        componentModels.stream()
-                .forEach(componentModel -> {
-                    if (componentModel.getMeta().getBeginNodeSpan() != null) {
-                        list.putComponent(componentModel.getID(), createFromComponentModel(componentModel));
-                    }
-                    if (componentModel.getComponents() != null) {
-                        populateFlatComponentListModel(list, componentModel.getNamedComponents().values());
-                    }
-                });
-    }
-
-    public static FlatComponentModel createFromComponentModel(final ComponentModel componentModel) {
-        FlatComponentModel model = new FlatComponentModel();
-        model.setId(componentModel.getID());
-        model.setCommentStart(componentModel.getMeta().getStart());
-        if (componentModel.getMeta().getEndNodeSpan() != null) {
-            model.setCommentEnd(componentModel.getMeta().getEnd());
-        }
-        return model;
     }
 }

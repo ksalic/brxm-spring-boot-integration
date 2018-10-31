@@ -21,15 +21,15 @@ public class TestPageModelApi {
     public void testPageModelSerialization() throws IOException {
 
 
-        RestTemplate template = new RestTemplate();
-        ResponseEntity<PageModel> exchange = template.exchange("http://localhost:8080/site/resourceapi", GET, null, PageModel.class);
-        PageModel pageModel = exchange.getBody();
-
-        TemplateSupport support = new TemplateSupport();
-
-        JsonNode jsonNode = support.find(pageModel, "/content/u895fb1b6410d497298946b6a06d2b361");
-
-        JsonNodeType nodeType = jsonNode.getNodeType();
+//        RestTemplate template = new RestTemplate();
+//        ResponseEntity<PageModel> exchange = template.exchange("http://localhost:8080/site/resourceapi", GET, null, PageModel.class);
+//        PageModel pageModel = exchange.getBody();
+//
+//        TemplateSupport support = new TemplateSupport(true, basePageModelUrl, previewBasePrefix);
+//
+//        JsonNode jsonNode = support.find(pageModel, "/content/u895fb1b6410d497298946b6a06d2b361");
+//
+//        JsonNodeType nodeType = jsonNode.getNodeType();
 
 
     }

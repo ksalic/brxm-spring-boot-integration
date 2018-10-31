@@ -76,7 +76,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-10-25T14:14:20.396+02:00
+      hippostdpubwf:lastModificationDate: 2018-10-30T15:53:31.528+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 570034f3-e0fa-4396-b49c-b274f90d47c4
       hippotranslation:locale: en
@@ -179,7 +179,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-09-17T08:56:07.730+02:00
+      hippostdpubwf:lastModificationDate: 2018-10-30T16:16:41.662+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: e3f162b7-a1e0-42d0-8195-6d6d8acb5156
       hippotranslation:locale: en

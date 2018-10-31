@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bloomreach.pagemodel.api.model.PageModel;
-import com.bloomreach.pagemodel.api.util.TemplateSupport;
 
 import org.onehippo.connectapp.service.PageModelResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.HandlerMapping;
 import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;
 
 @Controller
@@ -24,50 +24,39 @@ public class WebController {
     @Autowired
     ResourceHttpRequestHandler handler;
     @Autowired
-    private PageModelResourceService service;
-    private TemplateSupport previewTemplateSupport = new TemplateSupport(true);
-    private TemplateSupport liveTemplateSupport = new TemplateSupport();
-
+    private PageModelResourceService pageModelResourceService;
 
     @GetMapping(path = "**")
     public String getHomePage(Model model, HttpServletRequest req, HttpServletResponse res) {
-        PageModel pageModel = service.getPageModel(req, res);
+        PageModel pageModel = pageModelResourceService.getPageModel(req, res);
         model.addAttribute("pageModel", pageModel);
         model.addAttribute("isPreview", false);
-        model.addAttribute("ts", liveTemplateSupport);
+        model.addAttribute("ts", pageModelResourceService.getLiveTemplateSupport());
         return pageModel.getPage().getName();
     }
 
-    @GetMapping(path = "css/**")
-    public void css(Model model, HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    @GetMapping(path = "{folder:(?:css|js|fonts|images)}/**")
+    public void liveResources(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         handler.handleRequest(req, res);
     }
 
-    @GetMapping(path = "js/**")
-    public void js(Model model, HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    @GetMapping(path = {"/_cmsinternal/css/**", "/_cmsinternal/js/**", "/_cmsinternal/fonts/**", "/_cmsinternal/images/**"})
+    public void previewResources(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        String path = (String)req.getAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE);
+        path = path.replace("/_cmsinternal", "");
+        req.setAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE, path);
         handler.handleRequest(req, res);
     }
-
-    @GetMapping(path = "fonts/**")
-    public void fonts(Model model, HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        handler.handleRequest(req, res);
-    }
-
-    @GetMapping(path = "images/**")
-    public void images(Model model, HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        handler.handleRequest(req, res);
-    }
-
 
     @GetMapping(path = "/_cmsinternal/**")
     public String getCmsInternalPage(Model model, HttpServletRequest req, HttpServletResponse res,
                                      @RequestParam(value = "partial", required = false) boolean partial,
                                      @RequestParam(value = "ref", required = false) String ref,
                                      @RequestParam MultiValueMap<String, Object> properties) {
-        PageModel pageModel = service.getFullPageModelForPreview(req, res, ref, properties, partial);
+        PageModel pageModel = pageModelResourceService.getFullPageModelForPreview(req, res, ref, properties, partial);
         model.addAttribute("pageModel", pageModel);
         model.addAttribute("isPreview", true);
-        model.addAttribute("ts", previewTemplateSupport);
+        model.addAttribute("ts", pageModelResourceService.getPreviewTemplateSupport());
         return pageModel.getPage().getName();
     }
 
