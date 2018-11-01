@@ -31,7 +31,7 @@ public class WebController {
         PageModel pageModel = pageModelResourceService.getPageModel(req, res);
         model.addAttribute("pageModel", pageModel);
         model.addAttribute("isPreview", false);
-        model.addAttribute("ts", pageModelResourceService.getLiveTemplateSupport());
+        model.addAttribute("pma", pageModelResourceService.getLiveTemplateSupport());
         return pageModel.getPage().getName();
     }
 
@@ -56,7 +56,7 @@ public class WebController {
         PageModel pageModel = pageModelResourceService.getFullPageModelForPreview(req, res, ref, properties, partial);
         model.addAttribute("pageModel", pageModel);
         model.addAttribute("isPreview", true);
-        model.addAttribute("ts", pageModelResourceService.getPreviewTemplateSupport());
+        model.addAttribute("pma", pageModelResourceService.getPreviewTemplateSupport());
         return pageModel.getPage().getName();
     }
 

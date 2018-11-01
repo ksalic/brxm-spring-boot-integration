@@ -204,11 +204,19 @@ public final class RequestProxy {
                     continue;
                 }
             }*/
-
+//todo check
             hsResponse.addHeader(h.getName(), h.getValue());
             if (log.isInfoEnabled()) {
                 log.info("setting response parameter:" + h.getName() + ", value: " + h.getValue());
             }
+        }
+
+        for (int i = 0; i < httpResponse.getAllHeaders().length; i++) {
+            Header h = httpResponse.getAllHeaders()[i];
+            if ("content-type".equalsIgnoreCase(h.getName())) {
+                hsResponse.addHeader(h.getName(), h.getValue());
+            }
+
         }
         //fixme what about the response footers? (httpMethod.getResponseFooters())
 
@@ -327,7 +335,7 @@ public final class RequestProxy {
 
                 String source = IOUtils.toString(response.getEntity().getContent(), UTF_8);
 
-                if(!linkExcluded){
+                if (!linkExcluded) {
                     source = SpaHtmlUtils.convertToSpaEnabledHtml(source, requestTarget, requestTargetSpaSupport, hsRequest, hsResponse);
                 }
 

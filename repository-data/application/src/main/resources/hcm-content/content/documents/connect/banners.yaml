@@ -19,9 +19,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2014-03-20T17:04:00+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-01T09:35:45.529+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2014-03-20T17:04:00+01:00
+      hippostdpubwf:publicationDate: 2018-11-01T09:35:47.247+01:00
       hippotranslation:id: 570034f3-e0fa-4396-b49c-b274f90d47c4
       hippotranslation:locale: en
       /connect:content:
@@ -38,7 +38,7 @@
         hippo:values: []
       /connect:link:
         jcr:primaryType: hippo:mirror
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:docbase: 9a3f1f5c-5302-43c4-9bec-584e810ffa2f
     /banner1[2]:
       jcr:primaryType: connect:bannerdocument
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -48,7 +48,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2014-03-20T17:04:00+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-01T09:35:45.529+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 570034f3-e0fa-4396-b49c-b274f90d47c4
       hippotranslation:locale: en
@@ -66,7 +66,7 @@
         hippo:values: []
       /connect:link:
         jcr:primaryType: hippo:mirror
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:docbase: 9a3f1f5c-5302-43c4-9bec-584e810ffa2f
     /banner1[3]:
       jcr:primaryType: connect:bannerdocument
       jcr:mixinTypes: ['mix:referenceable']
@@ -76,7 +76,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-10-30T15:53:31.528+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-01T09:35:37.338+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 570034f3-e0fa-4396-b49c-b274f90d47c4
       hippotranslation:locale: en
@@ -94,7 +94,7 @@
         hippo:values: []
       /connect:link:
         jcr:primaryType: hippo:mirror
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:docbase: 9a3f1f5c-5302-43c4-9bec-584e810ffa2f
   /banner2:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -110,9 +110,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-09-17T08:56:07.691+02:00
+      hippostdpubwf:lastModificationDate: 2018-11-01T09:36:51.660+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-09-24T15:41:53.717+02:00
+      hippostdpubwf:publicationDate: 2018-11-01T09:36:53.048+01:00
       hippotranslation:id: e3f162b7-a1e0-42d0-8195-6d6d8acb5156
       hippotranslation:locale: en
       /connect:content:
@@ -135,7 +135,7 @@
         hippo:values: []
       /connect:link:
         jcr:primaryType: hippo:mirror
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:docbase: 895fb1b6-410d-4972-9894-6b6a06d2b361
     /banner2[2]:
       jcr:primaryType: connect:bannerdocument
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -145,7 +145,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-09-17T08:56:07.691+02:00
+      hippostdpubwf:lastModificationDate: 2018-11-01T09:36:51.660+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: e3f162b7-a1e0-42d0-8195-6d6d8acb5156
       hippotranslation:locale: en
@@ -169,7 +169,7 @@
         hippo:values: []
       /connect:link:
         jcr:primaryType: hippo:mirror
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:docbase: 895fb1b6-410d-4972-9894-6b6a06d2b361
     /banner2[3]:
       jcr:primaryType: connect:bannerdocument
       jcr:mixinTypes: ['mix:referenceable']
@@ -179,7 +179,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-10-30T16:16:41.662+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-01T09:38:12.750+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: e3f162b7-a1e0-42d0-8195-6d6d8acb5156
       hippotranslation:locale: en
@@ -203,4 +203,4 @@
         hippo:values: []
       /connect:link:
         jcr:primaryType: hippo:mirror
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:docbase: 895fb1b6-410d-4972-9894-6b6a06d2b361

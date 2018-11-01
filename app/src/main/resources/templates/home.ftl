@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <#-- @ftlvariable name="pageModel" type="com.bloomreach.pagemodel.api.model.PageModel" -->
 <#-- @ftlvariable name="component" type="com.bloomreach.pagemodel.api.model.ComponentModel" -->
-<#-- @ftlvariable name="ts" type="com.bloomreach.pagemodel.api.util.TemplateSupport" -->
+<#-- @ftlvariable name="pma" type="com.bloomreach.pagemodel.api.util.TemplateSupport" -->
 <html class="no-js">
   <head>
     <meta charset="utf-8">
@@ -13,20 +13,19 @@
   <#--<!-- Place favicon.ico and apple-touch-icon.png in the root directory &ndash;&gt;-->
   <#--<!-- Fonts &ndash;&gt;-->
   <#--<!-- Source Sans Pro &ndash;&gt;-->
-  <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400i|Source+Sans+Pro:300,400,600,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400i|Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700" rel="stylesheet">
   <#--<!-- CSS &ndash;&gt;-->
-  <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
-  <!-- Bootstrap CDN -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
 
-
-  <link rel="stylesheet" href="${ts.resourceUrl("/css/themefisher-fonts.css")}">
-  <link rel="stylesheet" href="${ts.resourceUrl("/css/owl.carousel.css")}>
-  <link rel="stylesheet" href="${ts.resourceUrl("/css/magnific-popup.css")}">
-  <link rel="stylesheet" href="${ts.resourceUrl("/css/style.css")}">
+    <link rel="stylesheet" href="${pma.resourceUrl("/css/themefisher-fonts.css")}">
+    <link rel="stylesheet" href="${pma.resourceUrl("/css/owl.carousel.css")}">
+    <link rel="stylesheet" href="${pma.resourceUrl("/css/magnific-popup.css")}">
+    <link rel="stylesheet" href="${pma.resourceUrl("/css/style.css")}">
   <#--<!-- Responsive Stylesheet &ndash;&gt;-->
-  <link rel="stylesheet" href="${ts.resourceUrl("/css/responsive.css")}">
+    <link rel="stylesheet" href="${pma.resourceUrl("/css/responsive.css")}">
   </head>
 
   <body id="body">
@@ -50,7 +49,9 @@
 
         <div class="collapse navbar-toggleable-md" id="navbarResponsive">
           <ul class="nav navbar-nav menu float-lg-right" id="top-nav">
-            <#list pageModel.page.namedComponents["header"].namedComponents["menu"].models.menu.siteMenuItems as menuItem>
+            <#assign menu=pageModel.page.namedComponents["header"].namedComponents["menu"].models.menu/>
+
+            <#list menu.siteMenuItems as menuItem>
               <li <#if menuItem.selected >class=" active"</#if>>
                 <a href="#">${menuItem.name?upper_case}</a>
               </li>
@@ -62,25 +63,31 @@
     </div>
 
     <div>
-      <div class="container-fluid" ${ts.component(pageModel.page.namedComponents["body"].namedComponents["container"])}>
-      <#if pageModel.page.namedComponents["body"].namedComponents["container"].components??>
-          <#list pageModel.page.namedComponents["body"].namedComponents["container"].components as component>
+      <#assign container=pageModel.page.namedComponents["body"].namedComponents["container"]/>
+
+      <div class="container-fluid" ${pma.component(container)}>
+      <#if container??>
+          <#list container.components as component>
             <div>
-              <div ${ts.component(component)}>
+              <div ${pma.component(component)}>
                  <#if component.models??>
 
-                    <#assign ref>${component.models.document.reference}</#assign>
-                      <#assign document=pageModel.contentNode[ref]/>
+                    <#assign ref=component.models.document.reference />
+                    <#assign document=pageModel.contentNode[ref]/>
+
                    <div class="container">
-                     <div class="row" ${ts.content(component.models.document)}>
+                     <div class="row" ${pma.content(component.models.document)}>
                        <div class="col-md-6 text-center">
-                         <img src="${ts.getImageUrl(pageModel, document.get("image").get("$ref"))}" width="400" alt="">
+                         <img src="${pma.getImageUrl(pageModel, document.get("image").get("$ref"))}" width="400" alt="">
                        </div>
                        <div class="col-md-6">
                          <div class="block">
-                           <h1 class="">${document.get("title").asText()}</h1>
+                           <h2 class="">${document.get("title").asText()}</h2>
                              ${document.get("content").get("value").asText()}
-                           <a class="btn btn-main" href="#about" role="button">Buy Now With $199</a>
+                             <#assign link=pma.find(pageModel, document.get("link").get("$ref").asText())/>
+                           <a class="btn btn-main" href="#about" role="button">${link.get("title").asText()}</a>
+
+
                          </div>
                        </div>
                      </div><!-- .row close -->
@@ -91,16 +98,13 @@
                       <div class="col-md-6 text-center">
                         <h2>Currently no model available for ${component.name} of type ${component.label}</h2>
                       </div>
-
                     </div>
                   </div>
                  </#if>
               </div>
             </div>
           </#list>
-
       </#if>
-
       </div>
     </div>
     <footer>
@@ -131,13 +135,13 @@
     </footer>
 
     <!-- Js -->
-  <script src="${ts.resourceUrl("/js/vendor/jquery-2.1.1.min.js")}"></script>
-  <script src=https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
-  <script src=https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
-  <script src="${ts.resourceUrl("/js/vendor/modernizr-2.6.2.min.js")}"></script>
-  <script src="${ts.resourceUrl("/js/owl.carousel.min.js")}"></script>
-  <script src="${ts.resourceUrl("/js/jquery.magnific-popup.min.js")}"></script>
-  <script src="${ts.resourceUrl("/js/main.js")}"></script>
+    <script src="${pma.resourceUrl("/js/vendor/jquery-2.1.1.min.js")}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+    <script src="${pma.resourceUrl("/js/vendor/modernizr-2.6.2.min.js")}"></script>
+    <script src="${pma.resourceUrl("/js/owl.carousel.min.js")}"></script>
+    <script src="${pma.resourceUrl("/js/jquery.magnific-popup.min.js")}"></script>
+    <script src="${pma.resourceUrl("/js/main.js")}"></script>
 
   </body>
 </html>
