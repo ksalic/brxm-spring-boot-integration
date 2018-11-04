@@ -26,7 +26,7 @@ public class SpaHtmlUtils {
 
     public static String convertToSpaEnabledHtml(final String source, final String baseUrl, final String spaSupportUrl, final HttpServletRequest hsRequest, final HttpServletResponse hsResponse) {
         if (StringUtils.isNotEmpty(spaSupportUrl)) {
-            FlatComponentModelMap flatModelMap = PageModelServiceClient.getFlatListModelForPreview(spaSupportUrl, hsRequest, hsResponse);
+            FlatComponentModelMap flatModelMap = PageModelProxyUtils.getFlatListModelForPreview(spaSupportUrl, hsRequest, hsResponse);
             return convertToSpaEnabledHtml(source, baseUrl, flatModelMap);
         }
         return source;

@@ -22,7 +22,7 @@ import org.springframework.web.client.RestTemplate;
 
 import static org.springframework.http.HttpMethod.GET;
 
-public class PageModelServiceClient {
+public class PageModelProxyUtils {
 
     public static FlatComponentModelMap getFlatListModelForPreview(final String previewBaseUrl, final HttpServletRequest request, final HttpServletResponse response) {
         PageModel pageModelForPreview = PageModelRequestUtils.getPageModelForPreview(previewBaseUrl, request, response);
