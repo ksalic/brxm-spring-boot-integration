@@ -233,8 +233,7 @@
       </activation>
       <modules>
         <module>hst-config-editor</module>
-        <module>pagemodel-api</module>
-        <module>pagemodel-hst</module>
+        <module>pma</module>
         <module>repository-data</module>
         <module>cms</module>
         <module>site</module>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0          http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.onehippo</groupId>
+    <artifactId>connect</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+  </parent>
+
+  <name>Page Model API Dependencies</name>
+  <description>Page Model API Dependencies</description>
+  <artifactId>pma-dependencies</artifactId>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>pagemodel-api</module>
+    <module>bepp</module>
+    <module>brxm-integration</module>
+  </modules>
+
+
+</project>

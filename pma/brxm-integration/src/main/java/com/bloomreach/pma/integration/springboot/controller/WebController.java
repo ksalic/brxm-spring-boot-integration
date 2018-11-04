@@ -1,4 +1,4 @@
-package org.onehippo.connectapp.controller;
+package com.bloomreach.pma.integration.springboot.controller;
 
 import java.io.IOException;
 
@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bloomreach.pagemodel.api.model.PageModel;
+import com.bloomreach.pma.integration.springboot.service.PageModelResourceService;
 
-import org.onehippo.connectapp.service.PageModelResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -60,5 +60,8 @@ public class WebController {
         return pageModel.getPage().getName();
     }
 
+    public void contributeToModel(final Model model, HttpServletRequest req, HttpServletResponse res){
+
+    }
 
 }

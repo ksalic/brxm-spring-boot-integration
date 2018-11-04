@@ -90,24 +90,9 @@
       <artifactId>hst-core</artifactId>
     </dependency>
     <dependency>
-      <groupId>commons-httpclient</groupId>
-      <artifactId>commons-httpclient</artifactId>
-      <version>3.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.jsoup</groupId>
-      <artifactId>jsoup</artifactId>
-      <version>1.11.2</version>
-    </dependency>
-    <dependency>
-      <groupId>com.bloomreach</groupId>
-      <artifactId>pagemodel-api</artifactId>
-      <version>0.1.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.bloomreach</groupId>
-      <artifactId>pagemodel-hst</artifactId>
-      <version>0.1.0-SNAPSHOT</version>
+      <groupId>com.bloomreach.pma</groupId>
+      <artifactId>bepp</artifactId>
+      <version>0.1.1-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.easymock</groupId>

@@ -8,17 +8,13 @@
     <version>29.5</version>
   </parent>
 
-  <groupId>com.bloomreach</groupId>
-  <artifactId>pagemodel-hst</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
+  <groupId>com.bloomreach.pma</groupId>
+  <artifactId>bepp</artifactId>
+  <version>0.1.1-SNAPSHOT</version>
 
   <packaging>jar</packaging>
-  <name>BloomReach PageModel HST</name>
-  <description>BloomReach PageModel HST</description>
-
-  <properties>
-    <!--<spring.version>4.3.18.RELEASE</spring.version>-->
-  </properties>
+  <name>BloomReach Experience Preview Proxy</name>
+  <description>BloomReach Experience Preview Proxy</description>
 
   <dependencies>
 
@@ -27,10 +23,11 @@
       <artifactId>jsoup</artifactId>
       <version>1.11.2</version>
     </dependency>
+
     <dependency>
-      <groupId>com.bloomreach</groupId>
+      <groupId>com.bloomreach.pma</groupId>
       <artifactId>pagemodel-api</artifactId>
-      <version>0.1.0-SNAPSHOT</version>
+      <version>0.1.1-SNAPSHOT</version>
     </dependency>
 
     <dependency>
@@ -64,6 +61,7 @@
       <artifactId>commons-io</artifactId>
       <version>2.6</version>
     </dependency>
+
     <dependency>
       <groupId>javax.ws.rs</groupId>
       <artifactId>javax.ws.rs-api</artifactId>

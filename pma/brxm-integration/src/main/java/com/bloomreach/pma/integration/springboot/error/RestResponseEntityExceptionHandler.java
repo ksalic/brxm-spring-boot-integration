@@ -1,4 +1,4 @@
-package org.onehippo.connectapp.error;
+package com.bloomreach.pma.integration.springboot.error;
 
 import com.bloomreach.pagemodel.api.util.PageModelRequestUtils;
 
@@ -21,7 +21,7 @@ public class RestResponseEntityExceptionHandler
             RuntimeException ex, WebRequest request) {
         if (ex instanceof HttpClientErrorException) {
             HttpClientErrorException exception = (HttpClientErrorException)ex;
-            if(exception.getStatusCode().equals(HttpStatus.FORBIDDEN)){
+            if (exception.getStatusCode().equals(HttpStatus.FORBIDDEN)) {
                 String bodyOfResponse = "Forbidden, only accessible through the Channel Manager";
                 return handleExceptionInternal(ex, bodyOfResponse,
                         new HttpHeaders(), HttpStatus.FORBIDDEN, request);

@@ -1,4 +1,4 @@
-package org.onehippo.connectapp.service;
+package com.bloomreach.pma.integration.springboot.service;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
@@ -9,7 +9,6 @@ import com.bloomreach.pagemodel.api.util.PageModelRequestUtils;
 import com.bloomreach.pagemodel.api.util.TemplateSupport;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.util.MultiValueMap;
 
