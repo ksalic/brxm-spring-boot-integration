@@ -19,7 +19,7 @@ import org.springframework.web.servlet.HandlerMapping;
 import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;
 
 @Controller
-public class WebController {
+public class BrXMWebController {
 
     @Autowired
     ResourceHttpRequestHandler handler;

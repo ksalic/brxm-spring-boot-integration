@@ -58,3 +58,114 @@
           resource: /content/gallery/connect/banners/banner-2.jpg/banner-2_original.jpg
         jcr:lastModified: 2016-07-25T09:42:50.558+02:00
         jcr:mimeType: image/jpeg
+  /lemon-8-500x383.png:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: 62d7a695-ac53-45c0-8d25-a399f36c83dc
+    hippo:name: Lemon-8-500x383.png
+    /lemon-8-500x383.png:
+      jcr:primaryType: hippogallery:imageset
+      hippo:availability: [live, preview]
+      hippogallery:filename: Lemon-8-500x383.png
+      /hippogallery:thumbnail:
+        jcr:primaryType: hippogallery:image
+        hippo:filename: Lemon-8-500x383.png
+        hippogallery:height: 45
+        hippogallery:width: 60
+        jcr:data:
+          type: binary
+          resource: /content/gallery/connect/banners/lemon-8-500x383.png/Lemon-8-500x383_thumbnail.png
+        jcr:lastModified: 2018-11-05T08:58:30.719+01:00
+        jcr:mimeType: image/png
+      /hippogallery:original:
+        jcr:primaryType: hippogallery:image
+        hippogallery:height: 383
+        hippogallery:width: 500
+        jcr:data:
+          type: binary
+          resource: /content/gallery/connect/banners/lemon-8-500x383.png/Lemon-8-500x383_original.png
+        jcr:lastModified: 2018-11-05T08:58:30.719+01:00
+        jcr:mimeType: image/png
+  /stock.png:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 6b58465e-2b19-4416-9645-09d0567e19d3
+    /stock.png:
+      jcr:primaryType: hippogallery:imageset
+      hippo:availability: [live, preview]
+      hippogallery:filename: stock.png
+      /hippogallery:thumbnail:
+        jcr:primaryType: hippogallery:image
+        hippo:filename: stock.png
+        hippogallery:height: 60
+        hippogallery:width: 47
+        jcr:data:
+          type: binary
+          resource: /content/gallery/connect/banners/stock.png/stock_thumbnail.png
+        jcr:lastModified: 2018-11-05T08:58:31.518+01:00
+        jcr:mimeType: image/png
+      /hippogallery:original:
+        jcr:primaryType: hippogallery:image
+        hippogallery:height: 945
+        hippogallery:width: 753
+        jcr:data:
+          type: binary
+          resource: /content/gallery/connect/banners/stock.png/stock_original.png
+        jcr:lastModified: 2018-11-05T08:58:31.518+01:00
+        jcr:mimeType: image/png
+  /sample2-objects-copy.png:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: 3c098705-d25a-4d42-8c59-9e575b1781d2
+    hippo:name: sample2-objects copy.png
+    /sample2-objects-copy.png:
+      jcr:primaryType: hippogallery:imageset
+      hippo:availability: [live, preview]
+      hippogallery:filename: sample2-objects copy.png
+      /hippogallery:thumbnail:
+        jcr:primaryType: hippogallery:image
+        hippo:filename: sample2-objects copy.png
+        hippogallery:height: 59
+        hippogallery:width: 58
+        jcr:data:
+          type: binary
+          resource: /content/gallery/connect/banners/sample2-objects-copy.png/sample2-objects-copy_thumbnail.png
+        jcr:lastModified: 2018-11-05T09:05:18.840+01:00
+        jcr:mimeType: image/png
+      /hippogallery:original:
+        jcr:primaryType: hippogallery:image
+        hippogallery:height: 823
+        hippogallery:width: 800
+        jcr:data:
+          type: binary
+          resource: /content/gallery/connect/banners/sample2-objects-copy.png/sample2-objects-copy_original.png
+        jcr:lastModified: 2018-11-05T09:05:18.840+01:00
+        jcr:mimeType: image/png
+  /flamingo-png-pic.png:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: ac9da7ed-a51b-4c91-9d83-cd3b7170b73f
+    hippo:name: Flamingo-PNG-Pic.png
+    /flamingo-png-pic.png:
+      jcr:primaryType: hippogallery:imageset
+      hippo:availability: [live, preview]
+      hippogallery:filename: Flamingo-PNG-Pic.png
+      /hippogallery:thumbnail:
+        jcr:primaryType: hippogallery:image
+        hippo:filename: Flamingo-PNG-Pic.png
+        hippogallery:height: 60
+        hippogallery:width: 52
+        jcr:data:
+          type: binary
+          resource: /content/gallery/connect/banners/flamingo-png-pic.png/Flamingo-PNG-Pic_thumbnail.png
+        jcr:lastModified: 2018-11-05T09:05:55.481+01:00
+        jcr:mimeType: image/png
+      /hippogallery:original:
+        jcr:primaryType: hippogallery:image
+        hippogallery:height: 906
+        hippogallery:width: 800
+        jcr:data:
+          type: binary
+          resource: /content/gallery/connect/banners/flamingo-png-pic.png/Flamingo-PNG-Pic_original.png
+        jcr:lastModified: 2018-11-05T09:05:55.481+01:00
+        jcr:mimeType: image/png

@@ -11,11 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <#--<!-- Place favicon.ico and apple-touch-icon.png in the root directory &ndash;&gt;-->
-  <#--<!-- Fonts &ndash;&gt;-->
-  <#--<!-- Source Sans Pro &ndash;&gt;-->
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400i|Source+Sans+Pro:300,400,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700" rel="stylesheet">
-  <#--<!-- CSS &ndash;&gt;-->
     <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
@@ -33,7 +30,6 @@
     <div id="preloader-wrapper">
       <div class="pre-loader"></div>
     </div>
-
     <!--
     Header start
     ==================== -->
@@ -47,13 +43,13 @@
           <i class="tf-ion-android-menu"></i>
         </button>
 
+          <#-- MENU -->
         <div class="collapse navbar-toggleable-md" id="navbarResponsive">
           <ul class="nav navbar-nav menu float-lg-right" id="top-nav">
             <#assign menu=pageModel.page.namedComponents["header"].namedComponents["menu"].models.menu/>
-
             <#list menu.siteMenuItems as menuItem>
               <li <#if menuItem.selected >class=" active"</#if>>
-                <a href="#">${menuItem.name?upper_case}</a>
+                <a href="${menuItem.links["site"].href}">${menuItem.name?upper_case}</a>
               </li>
             </#list>
           </ul>
@@ -61,52 +57,84 @@
 
       </nav>
     </div>
+    <!--
+    Header end
+    ==================== -->
 
+    <!--
+BODY start
+==================== -->
     <div>
       <#assign container=pageModel.page.namedComponents["body"].namedComponents["container"]/>
-
       <div class="container-fluid" ${pma.component(container)}>
       <#if container??>
           <#list container.components as component>
-            <div>
-              <div ${pma.component(component)}>
+            <section class="${component.label?lower_case} section" ${pma.component(component)}>
                  <#if component.models??>
-
                     <#assign ref=component.models.document.reference />
                     <#assign document=pageModel.contentNode[ref]/>
-
                    <div class="container">
                      <div class="row" ${pma.content(component.models.document)}>
-                       <div class="col-md-6 text-center">
-                         <img src="${pma.getImageUrl(pageModel, document.get("image").get("$ref"))}" width="400" alt="">
-                       </div>
-                       <div class="col-md-6">
-                         <div class="block">
-                           <h2 class="">${document.get("title").asText()}</h2>
-                             ${document.get("content").get("value").asText()}
-                             <#assign link=pma.find(pageModel, document.get("link").get("$ref").asText())/>
-                           <a class="btn btn-main" href="#about" role="button">${link.get("title").asText()}</a>
-
-
+                       <#if component?is_even_item>
+                         <div class="col-md-6 text-center">
+                           <img src="${pma.getImageUrl(pageModel, document.get("image").get("$ref"))}" height="300" alt="">
                          </div>
-                       </div>
+                         <div class="col-md-6">
+                           <div class="block">
+                             <h2 class="">${document.get("title").asText()}</h2>
+                               ${document.get("content").get("value").asText()}
+                               <#if document.has("link")>
+                                   <#assign link=pma.find(pageModel, document.get("link").get("$ref").asText())/>
+                               <#else >
+                                   <#assign link=""/>
+                               </#if>
+                             </br>
+                               <#if link?has_content>
+                                <a class="btn btn-main" href="#about" role="button">${link.get("title").asText()}</a>
+                               </#if>
+                           </div>
+                         </div>
+                       <#else >
+                        <div class="col-md-6">
+                          <div class="block">
+                            <h2 class="">${document.get("title").asText()}</h2>
+                              ${document.get("content").get("value").asText()}
+                             <#if document.has("link")>
+                                 <#assign link=pma.find(pageModel, document.get("link").get("$ref").asText())/>
+                             </#if>
+                            </br>
+                              <#if link??>
+                                <a class="btn btn-main" href="#about" role="button">${link.get("title").asText()}</a>
+                              </#if>
+                          </div>
+                        </div>
+                           <div class="col-md-6 text-center">
+                             <img src="${pma.getImageUrl(pageModel, document.get("image").get("$ref"))}" width="300" alt="">
+                           </div>
+                       </#if>
                      </div><!-- .row close -->
                    </div>
                  <#else>
                   <div class="container">
                     <div class="row">
                       <div class="col-md-6 text-center">
-                        <h2>Currently no model available for ${component.name} of type ${component.label}</h2>
+                        <h2>Currently no model available for ${component.name} of type ${component.label}. Click on this component and pick a Banner Document</h2>
                       </div>
                     </div>
                   </div>
                  </#if>
-              </div>
-            </div>
+            </section>
           </#list>
       </#if>
       </div>
     </div>
+    <!--
+       BODY end
+       ==================== -->
+
+    <!--
+FOOTER start
+==================== -->
     <footer>
       <div class="container text-center">
         <div class="row">

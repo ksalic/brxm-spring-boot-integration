@@ -12,7 +12,7 @@
       } else {
         window.location.href = removeUrlParameter(window.location.href);
       }
-      console.log(id);
+      //console.log(id);
       // if (!isEmptyValue(id)) {
       //   scrollToBottom(id);
       // }

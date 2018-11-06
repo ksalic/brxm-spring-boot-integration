@@ -2,6 +2,20 @@ definitions:
   config:
     /hst:hst/hst:configurations/hst:default/hst:catalog/essentials-catalog:
       jcr:primaryType: hst:containeritempackage
+      /hero:
+        jcr:primaryType: hst:containeritemcomponent
+        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsBannerComponent
+        hst:iconpath: images/essentials/catalog-component-icons/banner.png
+        hst:label: Hero
+        hst:template: essentials-banner
+        hst:xtype: hst.item
+      /promo:
+        jcr:primaryType: hst:containeritemcomponent
+        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsBannerComponent
+        hst:iconpath: images/essentials/catalog-component-icons/banner.png
+        hst:label: Promo
+        hst:template: essentials-banner
+        hst:xtype: hst.item
       /banner:
         jcr:primaryType: hst:containeritemcomponent
         hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsBannerComponent

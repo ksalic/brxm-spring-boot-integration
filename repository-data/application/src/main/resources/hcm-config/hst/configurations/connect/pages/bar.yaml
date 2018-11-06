@@ -1,0 +1,13 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/connect/hst:pages/bar:
+      jcr:primaryType: hst:component
+      hst:parameternames: [test]
+      hst:parametervalues: [test2]
+      hst:referencecomponent: hst:abstractpages/base
+      /main:
+        jcr:primaryType: hst:component
+        hst:template: homepage-main
+        /container:
+          jcr:primaryType: hst:containercomponentreference
+          hst:referencecomponent: homepage/main

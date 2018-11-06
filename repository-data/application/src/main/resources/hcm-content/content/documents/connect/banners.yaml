@@ -19,9 +19,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-11-01T09:35:45.529+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-05T09:06:10.955+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-11-01T09:35:47.247+01:00
+      hippostdpubwf:publicationDate: 2018-11-05T09:06:12.598+01:00
       hippotranslation:id: 570034f3-e0fa-4396-b49c-b274f90d47c4
       hippotranslation:locale: en
       /connect:content:
@@ -32,7 +32,7 @@
           ex ea commodo consequat.</p>
       /connect:image:
         jcr:primaryType: hippogallerypicker:imagelink
-        hippo:docbase: 9e440e6d-e93a-4d5f-913b-9c3b0867c812
+        hippo:docbase: 62d7a695-ac53-45c0-8d25-a399f36c83dc
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
@@ -48,7 +48,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-11-01T09:35:45.529+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-05T09:06:10.955+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 570034f3-e0fa-4396-b49c-b274f90d47c4
       hippotranslation:locale: en
@@ -60,7 +60,7 @@
           ex ea commodo consequat.</p>
       /connect:image:
         jcr:primaryType: hippogallerypicker:imagelink
-        hippo:docbase: 9e440e6d-e93a-4d5f-913b-9c3b0867c812
+        hippo:docbase: 62d7a695-ac53-45c0-8d25-a399f36c83dc
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
@@ -76,7 +76,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-11-01T09:35:37.338+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-05T09:06:03.687+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 570034f3-e0fa-4396-b49c-b274f90d47c4
       hippotranslation:locale: en
@@ -88,7 +88,7 @@
           ex ea commodo consequat.</p>
       /connect:image:
         jcr:primaryType: hippogallerypicker:imagelink
-        hippo:docbase: 9e440e6d-e93a-4d5f-913b-9c3b0867c812
+        hippo:docbase: 62d7a695-ac53-45c0-8d25-a399f36c83dc
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
@@ -104,15 +104,15 @@
       jcr:primaryType: connect:bannerdocument
       jcr:mixinTypes: ['mix:referenceable']
       jcr:uuid: 6ec744c5-53fd-43b5-b031-b73521303a68
-      connect:title: Sample banner 2
+      connect:title: Sample banner 2 iets nieuw
       hippo:availability: [live]
       hippostd:holder: admin
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-11-01T09:36:51.660+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-06T13:38:30.253+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-11-01T09:36:53.048+01:00
+      hippostdpubwf:publicationDate: 2018-11-06T13:38:50.569+01:00
       hippotranslation:id: e3f162b7-a1e0-42d0-8195-6d6d8acb5156
       hippotranslation:locale: en
       /connect:content:
@@ -129,7 +129,7 @@
           hippo:values: []
       /connect:image:
         jcr:primaryType: hippogallerypicker:imagelink
-        hippo:docbase: dc6c2247-d3f4-4be0-976e-749b69927eee
+        hippo:docbase: 6b58465e-2b19-4416-9645-09d0567e19d3
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
@@ -140,12 +140,12 @@
       jcr:primaryType: connect:bannerdocument
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
       jcr:uuid: f281606f-86db-452e-a2b6-45c990ae293c
-      connect:title: Sample banner 2
+      connect:title: Sample banner 2 iets nieuw
       hippo:availability: [preview]
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-11-01T09:36:51.660+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-06T13:38:30.253+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: e3f162b7-a1e0-42d0-8195-6d6d8acb5156
       hippotranslation:locale: en
@@ -163,7 +163,7 @@
           hippo:values: []
       /connect:image:
         jcr:primaryType: hippogallerypicker:imagelink
-        hippo:docbase: dc6c2247-d3f4-4be0-976e-749b69927eee
+        hippo:docbase: 6b58465e-2b19-4416-9645-09d0567e19d3
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
@@ -174,12 +174,12 @@
       jcr:primaryType: connect:bannerdocument
       jcr:mixinTypes: ['mix:referenceable']
       jcr:uuid: 5701d249-df85-40cc-9e24-efdea9a04aef
-      connect:title: Sample banner 2
+      connect:title: Sample banner 2 iets nieuw
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-11-01T09:38:12.750+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-06T13:38:50.699+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: e3f162b7-a1e0-42d0-8195-6d6d8acb5156
       hippotranslation:locale: en
@@ -197,10 +197,118 @@
           hippo:values: []
       /connect:image:
         jcr:primaryType: hippogallerypicker:imagelink
-        hippo:docbase: dc6c2247-d3f4-4be0-976e-749b69927eee
+        hippo:docbase: 6b58465e-2b19-4416-9645-09d0567e19d3
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
       /connect:link:
         jcr:primaryType: hippo:mirror
         hippo:docbase: 895fb1b6-410d-4972-9894-6b6a06d2b361
+  /banner3:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: 1c27f01e-daaf-4959-8cd7-c651e8205a3a
+    hippo:name: banner3
+    /banner3[1]:
+      jcr:primaryType: connect:bannerdocument
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 48235385-09bf-4d39-9c31-76377cba84cb
+      connect:title: Sample banner 3
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-06T14:06:26.361+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: fade5b0d-ca95-4937-83db-d3380a907efe
+      hippotranslation:locale: en
+      /connect:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmo<a href="sample-document">d tempo</a>r incididunt ut labore
+          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        /sample-document:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: 64ab4648-0c20-40d2-9f18-d7a394f0334b
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /connect:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: ac9da7ed-a51b-4c91-9d83-cd3b7170b73f
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /connect:link:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /banner3[2]:
+      jcr:primaryType: connect:bannerdocument
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: bacbcae8-8eba-4af6-9090-eb176488f1ad
+      connect:title: Sample banner 3
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-06T14:06:32.878+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: fade5b0d-ca95-4937-83db-d3380a907efe
+      hippotranslation:locale: en
+      /connect:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmo<a href="sample-document">d tempo</a>r incididunt ut labore
+          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        /sample-document:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: 64ab4648-0c20-40d2-9f18-d7a394f0334b
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /connect:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: ac9da7ed-a51b-4c91-9d83-cd3b7170b73f
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /connect:link:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /banner3[3]:
+      jcr:primaryType: connect:bannerdocument
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 4b323433-02be-44e3-8780-8a5fa0cce7bf
+      connect:title: Sample banner 3
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-06T14:06:26.361+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-11-06T14:06:32.759+01:00
+      hippotranslation:id: fade5b0d-ca95-4937-83db-d3380a907efe
+      hippotranslation:locale: en
+      /connect:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmo<a href="sample-document">d tempo</a>r incididunt ut labore
+          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        /sample-document:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: 64ab4648-0c20-40d2-9f18-d7a394f0334b
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /connect:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: ac9da7ed-a51b-4c91-9d83-cd3b7170b73f
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /connect:link:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe

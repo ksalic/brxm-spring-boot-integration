@@ -2,12 +2,17 @@ definitions:
   config:
     /hst:hst/hst:configurations/connect/hst:pages/homepage:
       jcr:primaryType: hst:component
-      hst:referencecomponent: hst:abstractpages/base
-      hst:parameternames: [test]
-      hst:parametervalues: [test2]
-      /main:
+      /header:
         jcr:primaryType: hst:component
-        hst:template: homepage-main
+        /menu:
+          jcr:primaryType: hst:component
+          hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
+          hst:parameternames: [menu]
+          hst:parametervalues: [main]
+      /body:
+        jcr:primaryType: hst:component
         /container:
           jcr:primaryType: hst:containercomponentreference
           hst:referencecomponent: homepage/main
+      /footer:
+        jcr:primaryType: hst:component
