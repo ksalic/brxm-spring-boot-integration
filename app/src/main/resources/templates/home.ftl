@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<#-- @ftlvariable name="pageModel" type="com.bloomreach.pagemodel.api.model.PageModel" -->
-<#-- @ftlvariable name="component" type="com.bloomreach.pagemodel.api.model.ComponentModel" -->
-<#-- @ftlvariable name="pma" type="com.bloomreach.pagemodel.api.util.TemplateSupport" -->
 <html class="no-js">
   <head>
     <meta charset="utf-8">
@@ -45,11 +42,13 @@
 
           <#-- MENU -->
         <div class="collapse navbar-toggleable-md" id="navbarResponsive">
-          <ul class="nav navbar-nav menu float-lg-right" id="top-nav">
+          <ul class="nav navbar-nav menu float-lg-right" id="top-nav" ${pma.menu(pageModel.page.namedComponents["header"].namedComponents["menu"])}>
             <#assign menu=pageModel.page.namedComponents["header"].namedComponents["menu"].models.menu/>
             <#list menu.siteMenuItems as menuItem>
               <li <#if menuItem.selected >class=" active"</#if>>
+                <#if menuItem.links["site"]??>
                 <a href="${menuItem.links["site"].href}">${menuItem.name?upper_case}</a>
+                </#if>
               </li>
             </#list>
           </ul>
