@@ -1,6 +1,6 @@
 definitions:
   config:
-    /hst:hst/hst:configurations/connect/hst:pages/homepage:
+    /hst:hst/hst:configurations/connect/hst:pages/homepage2:
       jcr:primaryType: hst:component
       /header:
         jcr:primaryType: hst:component
@@ -13,6 +13,6 @@ definitions:
         jcr:primaryType: hst:component
         /container:
           jcr:primaryType: hst:containercomponentreference
-          hst:referencecomponent: home/body-container
+          hst:referencecomponent: homepage/main
       /footer:
         jcr:primaryType: hst:component

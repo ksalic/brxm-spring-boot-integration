@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.NotAllowedException;
 
 import com.bloomreach.pagemodel.api.model.ComponentModel;
+import com.bloomreach.pagemodel.api.model.Menu;
 import com.bloomreach.pagemodel.api.model.PageModel;
 import com.bloomreach.pagemodel.api.util.PageModelRequestUtils;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -60,6 +61,9 @@ public class PageModelProxyUtils {
                         if (componentModel.getMeta().getBeginNodeSpan() != null) {
                             list.putComponent(componentModel.getID(), createFromComponentModel(componentModel));
                         }
+                        if (componentModel.getModels() != null && componentModel.getModels().getMenu() != null && componentModel.getModels().getMenu().getMeta() != null) {
+                            list.putMenu(componentModel.getID(), createFromMenuModel(componentModel, componentModel.getModels().getMenu()));
+                        }
                         if (componentModel.getComponents() != null) {
                             populateFlatComponentListModel(list, componentModel.getNamedComponents().values());
                         }
@@ -76,6 +80,17 @@ public class PageModelProxyUtils {
         }
         return model;
     }
+
+    public static FlatComponentModel createFromMenuModel(ComponentModel componentModel, final Menu menuModel) {
+        FlatComponentModel model = new FlatComponentModel();
+        model.setId(componentModel.getID());
+        model.setCommentStart(menuModel.getMeta().getStart());
+        if (componentModel.getMeta().getEndNodeSpan() != null) {
+            model.setCommentEnd(componentModel.getMeta().getEnd());
+        }
+        return model;
+    }
+
 
     @Deprecated
     public PageModel getPageModelForPreview(final String previewBaseUrl, final HttpServletRequest request, final String path) {

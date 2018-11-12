@@ -48,6 +48,7 @@ public class SpaHtmlUtils {
                     dataCms.after(new DataNode(flatComponentWindowModel.getCommentEnd()));
                 }
             }
+
             Elements dataCmsContentElements = doc.getElementsByAttribute("data-cms-content-id");
 
             for (Element dataCms : dataCmsContentElements) {
@@ -60,10 +61,23 @@ public class SpaHtmlUtils {
                     dataCms.insertChildren(0, new DataNode(flatComponentWindowModel.getCommentStart()));
                 }
             }
+
+            Elements dataCmsMenuElements = doc.getElementsByAttribute("data-cms-menu-id");
+
+            for (Element dataCms : dataCmsMenuElements) {
+
+                String attr = dataCms.attr("data-cms-menu-id");
+                if (flatComponentModelMap.getMenu().containsKey(attr)) {
+                    dataCms.attr("style", "position:relative;");
+                    FlatComponentModel flatComponentWindowModel = flatComponentModelMap.getMenu().get(attr);
+                    dataCms.removeAttr("data-cms-menu-id");
+                    dataCms.insertChildren(0, new DataNode(flatComponentWindowModel.getCommentStart()));
+                }
+            }
         }
 
-        InputStream resourceAsStream = SpaHtmlUtils.class.getResourceAsStream("/script.js");
-        try {
+
+        try (InputStream resourceAsStream = SpaHtmlUtils.class.getResourceAsStream("/script.js")) {
             String script = IOUtils.toString(resourceAsStream, UTF_8);
             doc.body().children().last().after(new DataNode("<script>" + script + "</script>"));
         } catch (IOException e) {

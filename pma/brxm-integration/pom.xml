@@ -52,7 +52,7 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>com.bloomreach</groupId>
+      <groupId>com.bloomreach.pma</groupId>
       <artifactId>pagemodel-api</artifactId>
       <version>0.1.1-SNAPSHOT</version>
     </dependency>

@@ -6,6 +6,7 @@ public class Menu {
     private String name;
     private SiteMenuItem[] siteMenuItems;
     private SiteMenuItem selectSiteMenuItem;
+    private MetaModel meta;
 
     @JsonProperty("name")
     public String getName() {
@@ -35,5 +36,15 @@ public class Menu {
     @JsonProperty("selectSiteMenuItem")
     public void setSelectSiteMenuItem(SiteMenuItem value) {
         this.selectSiteMenuItem = value;
+    }
+
+    @JsonProperty("_meta")
+    public MetaModel getMeta() {
+        return meta;
+    }
+
+    @JsonProperty("_meta")
+    public void setMeta(MetaModel value) {
+        this.meta = value;
     }
 }

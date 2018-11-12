@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import com.bloomreach.pagemodel.api.model.ComponentModel;
 import com.bloomreach.pagemodel.api.model.DocumentRef;
+import com.bloomreach.pagemodel.api.model.Menu;
 import com.bloomreach.pagemodel.api.model.PageModel;
 import com.fasterxml.jackson.core.JsonPointer;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -17,7 +18,7 @@ public class TemplateSupport {
     private static final String ORIGINAL = "original";
     private static final String COMPONENT_ID = "data-cms-component-id=\"%s\"";
     private static final String CONTENT_ID = "data-cms-content-id=\"%s\"";
-    private static final String MENU_ID = "data-cms-content-id=\"%s\"";
+    private static final String MENU_ID = "data-cms-menu-id=\"%s\"";
     private static final ObjectMapper MAPPER = new ObjectMapper();
     /**
      * JSON property name prefix for a UUID-based identifier.
@@ -59,6 +60,13 @@ public class TemplateSupport {
     public String content(String reference) {
         if (reference != null && this.isPreview) {
             return String.format(CONTENT_ID, reference);
+        }
+        return EMPTY;
+    }
+
+    public String menu(ComponentModel menuComponentModel) {
+        if (menuComponentModel != null && this.isPreview) {
+            return String.format(MENU_ID, menuComponentModel.getID());
         }
         return EMPTY;
     }

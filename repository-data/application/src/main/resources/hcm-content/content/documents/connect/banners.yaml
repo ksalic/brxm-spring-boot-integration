@@ -13,15 +13,15 @@
       jcr:primaryType: connect:bannerdocument
       jcr:mixinTypes: ['mix:referenceable']
       jcr:uuid: de8b8dd0-01cc-467b-ad9b-4651a6e4c0f8
-      connect:title: Sample banner
+      connect:title: afterparty is at 16:30
       hippo:availability: [live]
       hippostd:holder: admin
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-11-05T09:06:10.955+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-12T21:45:57.099+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-11-05T09:06:12.598+01:00
+      hippostdpubwf:publicationDate: 2018-11-12T21:46:00.927+01:00
       hippotranslation:id: 570034f3-e0fa-4396-b49c-b274f90d47c4
       hippotranslation:locale: en
       /connect:content:
@@ -43,12 +43,12 @@
       jcr:primaryType: connect:bannerdocument
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
       jcr:uuid: bb77778b-7d8e-493f-9852-702928231083
-      connect:title: Sample banner
+      connect:title: afterparty is at 16:30
       hippo:availability: [preview]
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-11-05T09:06:10.955+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-12T21:45:57.099+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 570034f3-e0fa-4396-b49c-b274f90d47c4
       hippotranslation:locale: en
@@ -71,12 +71,12 @@
       jcr:primaryType: connect:bannerdocument
       jcr:mixinTypes: ['mix:referenceable']
       jcr:uuid: 74780864-27e4-48e4-b0d9-b0a3bf2929a6
-      connect:title: Sample banner
+      connect:title: afterparty is at 16:30
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-11-05T09:06:03.687+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-12T21:46:00.992+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 570034f3-e0fa-4396-b49c-b274f90d47c4
       hippotranslation:locale: en
@@ -104,15 +104,15 @@
       jcr:primaryType: connect:bannerdocument
       jcr:mixinTypes: ['mix:referenceable']
       jcr:uuid: 6ec744c5-53fd-43b5-b031-b73521303a68
-      connect:title: Sample banner 2 iets nieuw
+      connect:title: Enjoying this talk?
       hippo:availability: [live]
       hippostd:holder: admin
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-11-06T13:38:30.253+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-12T21:34:44.240+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-11-06T13:38:50.569+01:00
+      hippostdpubwf:publicationDate: 2018-11-12T21:34:49.117+01:00
       hippotranslation:id: e3f162b7-a1e0-42d0-8195-6d6d8acb5156
       hippotranslation:locale: en
       /connect:content:
@@ -140,12 +140,12 @@
       jcr:primaryType: connect:bannerdocument
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
       jcr:uuid: f281606f-86db-452e-a2b6-45c990ae293c
-      connect:title: Sample banner 2 iets nieuw
+      connect:title: Enjoying this talk?
       hippo:availability: [preview]
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-11-06T13:38:30.253+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-12T21:34:44.240+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: e3f162b7-a1e0-42d0-8195-6d6d8acb5156
       hippotranslation:locale: en
@@ -174,12 +174,12 @@
       jcr:primaryType: connect:bannerdocument
       jcr:mixinTypes: ['mix:referenceable']
       jcr:uuid: 5701d249-df85-40cc-9e24-efdea9a04aef
-      connect:title: Sample banner 2 iets nieuw
+      connect:title: Enjoying this talk?
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-11-06T13:38:50.699+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-12T21:34:49.184+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: e3f162b7-a1e0-42d0-8195-6d6d8acb5156
       hippotranslation:locale: en
@@ -213,12 +213,12 @@
       jcr:primaryType: connect:bannerdocument
       jcr:mixinTypes: ['mix:versionable']
       jcr:uuid: 48235385-09bf-4d39-9c31-76377cba84cb
-      connect:title: Sample banner 3
+      connect:title: If you are getting bored...
       hippo:availability: [preview]
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-11-06T14:06:26.361+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-12T21:34:58.647+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: fade5b0d-ca95-4937-83db-d3380a907efe
       hippotranslation:locale: en
@@ -247,12 +247,12 @@
       jcr:primaryType: connect:bannerdocument
       jcr:mixinTypes: ['mix:referenceable']
       jcr:uuid: bacbcae8-8eba-4af6-9090-eb176488f1ad
-      connect:title: Sample banner 3
+      connect:title: If you are getting bored...
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-11-06T14:06:32.878+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-12T21:34:58.696+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: fade5b0d-ca95-4937-83db-d3380a907efe
       hippotranslation:locale: en
@@ -281,15 +281,123 @@
       jcr:primaryType: connect:bannerdocument
       jcr:mixinTypes: ['mix:referenceable']
       jcr:uuid: 4b323433-02be-44e3-8780-8a5fa0cce7bf
-      connect:title: Sample banner 3
+      connect:title: If you are getting bored...
       hippo:availability: [live]
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2018-11-06T14:06:26.361+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-12T21:34:58.647+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2018-11-06T14:06:32.759+01:00
+      hippostdpubwf:publicationDate: 2018-11-12T21:38:24.827+01:00
       hippotranslation:id: fade5b0d-ca95-4937-83db-d3380a907efe
+      hippotranslation:locale: en
+      /connect:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmo<a href="sample-document">d tempo</a>r incididunt ut labore
+          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        /sample-document:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: 64ab4648-0c20-40d2-9f18-d7a394f0334b
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /connect:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: ac9da7ed-a51b-4c91-9d83-cd3b7170b73f
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /connect:link:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+  /banner4:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: 5a987fd5-686c-41ea-8291-99a076b57847
+    hippo:name: banner4
+    /banner4[1]:
+      jcr:primaryType: connect:bannerdocument
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 88264382-f9cc-4428-9d93-450aacab2697
+      connect:title: Another flamingo huh??
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-12T21:38:50.627+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 121c2d8d-244a-4925-b7bf-321e6f8ff624
+      hippotranslation:locale: en
+      /connect:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmo<a href="sample-document">d tempo</a>r incididunt ut labore
+          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        /sample-document:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: 64ab4648-0c20-40d2-9f18-d7a394f0334b
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /connect:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: ac9da7ed-a51b-4c91-9d83-cd3b7170b73f
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /connect:link:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /banner4[2]:
+      jcr:primaryType: connect:bannerdocument
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: feb7a6e6-95c2-4862-8903-620c6ee0d2d1
+      connect:title: Another flamingo huh??
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-12T21:38:35.621+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 121c2d8d-244a-4925-b7bf-321e6f8ff624
+      hippotranslation:locale: en
+      /connect:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmo<a href="sample-document">d tempo</a>r incididunt ut labore
+          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        /sample-document:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: 64ab4648-0c20-40d2-9f18-d7a394f0334b
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /connect:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: ac9da7ed-a51b-4c91-9d83-cd3b7170b73f
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /connect:link:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /banner4[3]:
+      jcr:primaryType: connect:bannerdocument
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: b07e21ac-bad7-4e7c-90f7-9b73914b4aff
+      connect:title: Another flamingo huh??
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2014-03-20T17:00:00+01:00
+      hippostdpubwf:lastModificationDate: 2018-11-12T21:38:50.627+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2018-11-12T21:38:52.130+01:00
+      hippotranslation:id: 121c2d8d-244a-4925-b7bf-321e6f8ff624
       hippotranslation:locale: en
       /connect:content:
         jcr:primaryType: hippostd:html
